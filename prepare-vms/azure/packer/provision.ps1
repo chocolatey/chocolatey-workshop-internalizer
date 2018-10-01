@@ -1,8 +1,5 @@
 $ErrorActionPreference = 'Stop'
 
-$docker_provider = "DockerMsftProvider"
-$docker_version = "18.03.1-ee-3"
-
 Write-Output 'Set Windows Updates to manual'
 Cscript $env:WinDir\System32\SCregEdit.wsf /AU 1
 Net stop wuauserv
@@ -43,7 +40,7 @@ Write-Output 'Install Chocolatey'
 Invoke-WebRequest 'https://chocolatey.org/install.ps1' -UseBasicParsing | Invoke-Expression
 
 Write-Output 'Install editors'
-choco install -y visualstudiocode
+choco install -y vscode
 
 Write-Output 'Install Git'
 choco install -y git
@@ -51,55 +48,6 @@ choco install -y git
 Write-Output 'Install browsers'
 choco install -y googlechrome
 choco install -y firefox
-
-Write-Output 'Install Docker Compose'
-choco install -y docker-compose
-
-if (Test-Path $env:ProgramFiles\docker) {
-  Write-Output Update Docker
-  Install-Package -Name docker -ProviderName $docker_provider -Verbose -Update -RequiredVersion $docker_version -Force
-} else {
-  Write-Output "Install-PackageProvider ..."
-  Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
-  Write-Output "Install-Module $docker_provider ..."
-  Install-Module -Name $docker_provider -Force
-  Write-Output "Install-Package version $docker_version ..."
-  Set-PSRepository -InstallationPolicy Trusted -Name PSGallery
-  $ErrorActionStop = 'SilentlyContinue'
-  Install-Package -Name docker -ProviderName $docker_provider -RequiredVersion $docker_version -Force
-  Set-PSRepository -InstallationPolicy Untrusted -Name PSGallery
-  $env:Path = $env:Path + ";$($env:ProgramFiles)\docker"
-}
-
-Write-Output 'Staring Docker service'
-Start-Service docker
-
-Write-Output 'Docker version'
-docker version
-
-$images =
-'microsoft/windowsservercore:ltsc2016',
-'microsoft/nanoserver:sac2016',
-'microsoft/windowsservercore',
-'microsoft/nanoserver',
-'microsoft/iis',
-'golang',
-'golang:nanoserver',
-'microsoft/dotnet-framework:4.7.2-sdk',
-'microsoft/dotnet-framework:4.7.2-runtime',
-'microsoft/dotnet:2.0-sdk-nanoserver-sac2016',
-'microsoft/dotnet:2.0-runtime-nanoserver-sac2016',
-'microsoft/aspnetcore:2.0-nanoserver-sac2016',
-'microsoft/iis:nanoserver-sac2016',
-'microsoft/aspnet:4.7.2-windowsservercore-ltsc2016',
-'microsoft/mssql-server-windows-express:2016-sp1',
-'nats:1.1.0-nanoserver'
-
-Write-Output 'Pulling images'
-foreach ($tag in $images) {
-    Write-Output "  Pulling image $tag"
-    & docker image pull $tag
-}
 
 Write-Output 'Disable autologon'
 New-ItemProperty -Path "HKCU:\Software\Microsoft\Windows NT\CurrentVersion\Winlogon" -Name AutoAdminLogon -PropertyType DWORD -Value "0" -Force

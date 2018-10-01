@@ -1,5 +1,9 @@
 version: 2
 
+general:
+  branches:
+    only:
+      - master
 jobs:
   shellcheck:
     docker:
@@ -15,10 +19,10 @@ jobs:
   psscriptanalyzer:
     docker:
       - image: microsoft/powershell
-    
+
     steps:
       - checkout
-      
+
       - run:
           name: Run PSScriptAnalyzer
           command: |
@@ -106,17 +110,12 @@ jobs:
             cp machines.md ${CIRCLE_TAG}-machines.md
             mdpdf ${CIRCLE_TAG}-machines.md
             echo "Uploading ${CIRCLE_TAG}-machines.pdf to Slack"
-            curl -F file=@${CIRCLE_TAG}-machines.pdf "https://slack.com/api/files.upload?token=${SLACK_TOKEN}&channels=%40stefanscherer&pretty=1"
+            curl -F file=@${CIRCLE_TAG}-machines.pdf "https://slack.com/api/files.upload?token=${SLACK_TOKEN}&channels=%23internalizer-workshop&pretty=1"
 
   build-windows-2016:
     <<: *packer
     environment:
       - PACKER_TEMPLATE: "windows_2016"
-
-  build-windows-2019:
-    <<: *packer
-    environment:
-      - PACKER_TEMPLATE: "windows_2019"
 
 workflows:
   version: 2

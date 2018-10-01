@@ -30,7 +30,7 @@ variable "admin_username" {
 }
 
 variable "workshop_image" {
-  default = "windows_2019_docker_azure_329"
+  default = "win2016"
 }
 
 variable "vm_size" {
