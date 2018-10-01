@@ -9,7 +9,7 @@ variable "count" {
 }
 
 variable "group_name" {
-  default = "chocolateyfest-docker-workshop"
+  default = "chocolateyfest-choco-workshop"
 }
 
 variable "account" {

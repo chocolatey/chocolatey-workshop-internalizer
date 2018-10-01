@@ -1,7 +1,7 @@
 #!/bin/bash
-resource_group=chocolateyfest-docker-workshop-images
+resource_group=chocolateyfest-chocolatey-internalizer-images
 region="West US 2"
-aadClientName=windows-docker-workshop-packer
+aadClientName=chocolatey-internalizer-workshop-packer
 
 echo "Creating image resource group $resource_group"
 az group create -n $resource_group -l "$region" | jq -r .id
