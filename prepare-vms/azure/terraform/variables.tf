@@ -30,7 +30,7 @@ variable "admin_username" {
 }
 
 variable "workshop_image" {
-  default = "win2016"
+  default = "windows_2016_21"
 }
 
 variable "vm_size" {
