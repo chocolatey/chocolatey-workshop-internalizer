@@ -110,7 +110,7 @@ jobs:
             cp machines.md ${CIRCLE_TAG}-machines.md
             mdpdf ${CIRCLE_TAG}-machines.md
             echo "Uploading ${CIRCLE_TAG}-machines.pdf to Slack"
-            curl -F file=@${CIRCLE_TAG}-machines.pdf "https://slack.com/api/files.upload?token=${SLACK_TOKEN}&channels=%23internalizer-workshop&pretty=1"
+            curl -F file=@${CIRCLE_TAG}-machines.pdf "https://slack.com/api/files.upload?token=${SLACK_TOKEN}&channels=internalizer-workshop&pretty=1"
 
   build-windows-2016:
     <<: *packer
