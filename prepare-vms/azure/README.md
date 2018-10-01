@@ -2,14 +2,14 @@
 
 ## Build VM image with Packer
 
-```
+```bash
 cd packer
 packer build
 ```
 
 ## Create workshop VM's with Terraform
 
-```
+```bash
 cd terraform
 terraform init
 terraform plan
