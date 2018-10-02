@@ -1,2 +1,4 @@
 *.tfstate*
 crash.log
+.DS_Store
+PITCHME/
