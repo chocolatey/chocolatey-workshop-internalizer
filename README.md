@@ -8,7 +8,7 @@ This is the material for the workshop "Setting up Internal Chocolatey Deployment
 
 ## Workshop slides
 
-- The slides are in the `docs` folder.
+- The slides for this presentation can be found here [![GitPitch](https://gitpitch.com/assets/badge.svg)](https://gitpitch.com/gep13/chocolatey-internalizer-workshop/master)
 
 ## Past workshops
 
