@@ -32,9 +32,9 @@
         "../../scripts/SetWindowsPreferences.ps1",
         "./openssh.ps1",
         "./provision.ps1",
-        "../../InstallChocolateyLicensed.ps1",
-        "../../DeployChocolateyLicense.ps1",
-        "../../NotifyGuiAppsOfEnvironmentChanges.ps1"
+        "../../scripts/InstallChocolateyLicensed.ps1",
+        "../../scripts/DeployChocolateyLicense.ps1",
+        "../../scripts/NotifyGuiAppsOfEnvironmentChanges.ps1"
       ],
       "type": "powershell"
     },
