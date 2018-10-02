@@ -16,7 +16,7 @@ paul@chocolatey.io
 
 Twitter:
 @gep13
-@naturalborntech
+@pauby
 
 Web: https://chocolatey.org
 
@@ -27,5 +27,6 @@ Web: https://chocolatey.org
 
 * Chocolatey Documentation - https://chocolatey.org/docs
 * Gitter Chat - https://gitter.im/chocolatey/choco
+* Google Groups - https://groups.google.com/forum/#!forum/chocolatey 
 * Learning Resources - https://chocolatey.org/docs/resources
 * How To Use Package Internalizer To Create Internal Package Source - https://chocolatey.org/docs/how-to-setup-internal-package-repository
