@@ -14,12 +14,14 @@ apk add pwgen
 
 ./create-passwords.sh
 mkdir -p /tmp/workspace
-cp machines.md /tmp/workspace
+if [ -f machines.md ]; then
+  cp machines.md /tmp/workspace
+fi
 
 terraform init
 terraform apply \
   -var "count=$number_of_machines" \
   -var "dns_prefix=$dns_prefix" \
-  -var "group_name=${dns_prefix}-${number_of_machines}-chocolatey-internalizer-workshop" \
+  -var "group_name=${dns_prefix}-${number_of_machines}-windows-docker-workshop" \
   -var "account=${dns_prefix}${number_of_machines}workshop" \
   -auto-approve
