@@ -28,8 +28,13 @@
   "provisioners": [
     {
       "scripts": [
+        "../../scripts/PrepareWindows.ps1",
+        "../../scripts/SetWindowsPreferences.ps1",
         "./openssh.ps1",
-        "./provision.ps1"
+        "./provision.ps1",
+        "../../InstallChocolateyLicensed.ps1",
+        "../../DeployChocolateyLicense.ps1",
+        "../../NotifyGuiAppsOfEnvironmentChanges.ps1"
       ],
       "type": "powershell"
     },
