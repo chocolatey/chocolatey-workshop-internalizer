@@ -5,6 +5,26 @@
 
 ---
 
+@title[Why do I need to internalize packages?]
+## Why do I need to internalize packages?
+
+---
+
+@title[What can't I just use the packages downloaded from chocolatey.org?]
+## Why can't I just use the packages downloaded from chocolatey.org?
+
+---
+
+@title[Why use Jenkins?]
+## Why use Jenkins?
+
+---
+
+@title[Why use Chocolatey.Server?]
+## Why use Chocolatey.Server?
+
+---
+
 @title[Questions]
 ## Questions?
 
