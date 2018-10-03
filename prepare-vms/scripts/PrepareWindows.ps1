@@ -10,8 +10,10 @@ Write-Output "IE Enhanced Security Configuration (ESC) has been disabled."
 New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Internet Explorer\Main" -Name "DisableFirstRunCustomize" -Value 1 -PropertyType "DWord" -Force | Out-Null
 Write-Output "IE first run welcome screen has been disabled."
 
-Write-Output 'Setting Windows Update service to Manual startup type.'
-Set-Service -Name wuauserv -StartupType Manual
+Write-Output 'Set Windows Updates to manual'
+Cscript $env:WinDir\System32\SCregEdit.wsf /AU 1
+Net stop wuauserv
+Net start wuauserv
 
 #Set-ExecutionPolicy Unrestricted
 
@@ -20,3 +22,12 @@ New-Item -ItemType Directory $(Split-Path $profile -Parent) -Force
 Set-Content -Path $profile -Encoding UTF8 -Value "" -Force
 
 winrm set winrm/config/winrs '@{MaxMemoryPerShellMB="2048"}'
+
+Write-Output 'Disable Windows Defender'
+Set-MpPreference -DisableRealtimeMonitoring $true
+
+Write-Output 'Do not open Server Manager at logon'
+New-ItemProperty -Path HKCU:\Software\Microsoft\ServerManager -Name DoNotOpenServerManagerAtLogon -PropertyType DWORD -Value "1" -Force
+
+Write-Output 'Disable autologon'
+New-ItemProperty -Path "HKCU:\Software\Microsoft\Windows NT\CurrentVersion\Winlogon" -Name AutoAdminLogon -PropertyType DWORD -Value "0" -Force
