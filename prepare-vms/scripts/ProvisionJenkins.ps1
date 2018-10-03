@@ -33,7 +33,8 @@ Write-Host "Waiting up to 60 seconds for Jenkins to respond."
 # loop either 60 times or until we get a 403 status code response (403 means we
 # are unauthorised and the service is therefore up)
 $status = 0
-for ($i = 0; $i -lt 60 -and $status -ne 403; $i++) {
+$waitSeconds = 60
+for ($i = 0; $i -lt $waitSeconds -and $status -ne 403; $i++) {
   Start-Sleep -Seconds 1
   try {
     $request = $null
@@ -45,16 +46,24 @@ for ($i = 0; $i -lt 60 -and $status -ne 403; $i++) {
   $status = [int]$request.StatusCode
 }
 
-# Just wait an extra 5 seconds to be sure
-Start-Sleep -Seconds 5
-
-$pw = Get-Content "c:\program files (x86)\jenkins\secrets\initialAdminPassword"
-Set-Location "c:\program files (x86)\jenkins\jre\bin"
-
-Write-Host "Installing Jenkins plugins."
-"build-timeout", "workflow-aggregator", "pipeline-stage-view", "powershell" | ForEach-Object {
-  .\java.exe -jar ..\..\war\web-inf\jenkins-cli.jar -s http://127.0.0.1:8080/ -auth admin:$pw install-plugin $_
+# check how long we waited
+if ($i -ge $waitSeconds) {
+    Write-Error "Timed out waiting $waitSeconds seconds for Jenkins to restart."
 }
+else {
+    Write-Host "Waited $i seconds for Jenkins to restart."
 
-Write-Host "Restarting Jenkins service."
-Restart-Service -Name jenkins
+    # Just wait an extra 5 seconds to be sure
+    Start-Sleep -Seconds 5
+
+    $pw = Get-Content "c:\program files (x86)\jenkins\secrets\initialAdminPassword"
+    Set-Location "c:\program files (x86)\jenkins\jre\bin"
+
+    Write-Host "Installing Jenkins plugins."
+    "build-timeout", "workflow-aggregator", "pipeline-stage-view", "powershell" | ForEach-Object {
+    .\java.exe -jar ..\..\war\web-inf\jenkins-cli.jar -s http://127.0.0.1:8080/ -auth admin:$pw install-plugin $_
+    }
+
+    Write-Host "Restarting Jenkins service."
+    Restart-Service -Name jenkins
+}
