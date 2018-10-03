@@ -17,7 +17,7 @@ if($jenkinsDownloadUrl -And $azureSas) {
   Write-Host "Unable to download Jenkins nupkg"
 }
 
-choco upgrade jenkins -y --source="''c:\packages"
+choco upgrade jenkins -y --source="'c:\packages'"
 
 Write-Output "Downloading Jenkins Scripts..."
 
