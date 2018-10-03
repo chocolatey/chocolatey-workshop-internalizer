@@ -7,15 +7,23 @@ $azureSas = $env:AZURE_SAS;
 $downloadPath = "c:\packages"
 $licenseInstallationPath = "c:\programdata\chocolatey\license"
 
+Write-Host "Checking to see if $licenseInstallationPath exists..."
 if(!(Test-Path $licenseInstallationPath)) {
   New-Item -ItemType Directory -Path $licenseInstallationPath
+  Write-Host "Directory created."
 }
 
 if($licenseDownloadUrl -And $licenseNupkgDownloadUrl -And $azureSas) {
   $fullDownloadUrlForLicense = "$licenseDownloadUrl$azureSas"
   $fullDownloadUrlForNupkg = "$licenseNupkgDownloadUrl$azureSas"
+
+  Write-Host "Downloading nupkg..."
   (New-Object Net.WebClient).DownloadFile($fullDownloadUrlForNupkg, "$downloadPath\chocolatey.extension.1.12.12.nupkg")
-  (New-Object New.WebClient).DownloadFile($fullDownloadUrlForLicense, "$licenseInstallationPath\chocolatey.license.xml")
+  Write-Host "Nupkg downloaded."
+
+  Write-Host "Downloading license file..."
+  (New-Object Net.WebClient).DownloadFile($fullDownloadUrlForLicense, "$licenseInstallationPath\chocolatey.license.xml")
+  Write-Host "File downloaded"
 } else {
   Write-Host "Unable to download Chocolatey Licensed"
 }
