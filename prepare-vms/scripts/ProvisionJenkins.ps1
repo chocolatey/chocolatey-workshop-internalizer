@@ -53,15 +53,15 @@ if ($i -ge $waitSeconds) {
 else {
     Write-Host "Waited $i seconds for Jenkins to restart."
 
-    # Just wait an extra 5 seconds to be sure
-    Start-Sleep -Seconds 5
-
     $pw = Get-Content "c:\program files (x86)\jenkins\secrets\initialAdminPassword"
     Set-Location "c:\program files (x86)\jenkins\jre\bin"
 
     Write-Host "Installing Jenkins plugins."
     "build-timeout", "workflow-aggregator", "pipeline-stage-view", "powershell" | ForEach-Object {
-    .\java.exe -jar ..\..\war\web-inf\jenkins-cli.jar -s http://127.0.0.1:8080/ -auth admin:$pw install-plugin $_
+       # Just wait an extra 5 seconds to be sure
+        Start-Sleep -Seconds 5
+
+        .\java.exe -jar ..\..\war\web-inf\jenkins-cli.jar -s http://127.0.0.1:8080/ -auth admin:$pw install-plugin $_
     }
 
     Write-Host "Restarting Jenkins service."
