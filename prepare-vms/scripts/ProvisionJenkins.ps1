@@ -4,11 +4,13 @@ Write-Host "Stopping Jenkins service."
 Stop-Service -Name jenkins
 
 Write-Output "Downloading Jenkins Configuration file..."
+New-Item -ItemType Directory -Path "c:\temp"
 if (!(Test-Path 'c:\temp\jenkins-config.zip')) {
   (New-Object Net.WebClient).DownloadFile('https://github.com/gep13/chocolatey-internalizer-workshop/raw/master/prepare-vms/scripts/jenkins-config.zip', 'C:\temp\jenkins-config.zip')
 }
 
 Write-Host "Extracting Jenkins configuration files."
+
 7z x c:\temp\jenkins-config.zip -y -r -bd -o"c:\program files (x86)\jenkins"
 #Copy-Item c:\vagrant\scripts\jenkins-config\* "c:\program files (x86)\jenkins" -Recurse -Force
 Write-Host "Starting Jenkins service."
