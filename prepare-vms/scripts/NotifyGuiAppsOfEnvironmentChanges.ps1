@@ -19,5 +19,5 @@ $result = [uintptr]::zero
 # Attempting to make the script recapture environment changes
 setx.exe trigger 1
 
-#Write-Output "For good measure, we are going to take out explorer"
+#Write-Host "For good measure, we are going to take out explorer"
 #tskill.exe explorer /a /v

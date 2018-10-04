@@ -1,4 +1,5 @@
-Write-Output 'Install Chocolatey.Server'
+Write-Host "Installing Chocolatey.Server..."
+
 $firstSiteName = 'ChocolateyServerA'
 $firstAppPoolName = 'ChocolateyServerAAppPool'
 $firstSitePath = 'c:\tools\chocolatey.server'
@@ -101,7 +102,7 @@ $secondAppdataPath = Join-Path -Path $secondSitePath -ChildPath 'App_Data'
     Add-Acl -Path $secondAppdataPath -AceObject $obj
 }
 
-Write-Output 'Set up Chocolatey Sources'
+Write-Host "Setting up Chocolatey Sources..."
 choco source add --name="'testrepo'" --source="'http://localhost/chocolatey'" --priority="'2'" --bypass-proxy --allow-self-service
 choco source add --name="'prodrepo'" --source="'http://localhost:81/chocolatey'" --priority="'2'" --bypass-proxy --allow-self-service
 

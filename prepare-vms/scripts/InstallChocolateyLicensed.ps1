@@ -1,4 +1,4 @@
-Write-Output 'Installing Chocolatey Licensed...'
+Write-Host "Installing Chocolatey Licensed..."
 
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 $licenseDownloadUrl = $env:LICENSE_DOWNLOAD_URL;

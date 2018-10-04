@@ -11,16 +11,16 @@ function Get-HostToIP($hostname) {
   $result.AddressList | ForEach-Object {$_.IPAddressToString }
 }
 
-Write-Output "provision.ps1"
-Write-Output "HostName = $($HostName)"
+Write-Host "provision.ps1"
+Write-Host "HostName = $($HostName)"
 
 $PublicIPAddress = Get-HostToIP($HostName)
 
-Write-Output "PublicIPAddress = $($PublicIPAddress)"
-Write-Output "USERPROFILE = $($env:USERPROFILE)"
-Write-Output "pwd = $($pwd)"
+Write-Host "PublicIPAddress = $($PublicIPAddress)"
+Write-Host "USERPROFILE = $($env:USERPROFILE)"
+Write-Host "pwd = $($pwd)"
 
-Write-Output Install bginfo
+Write-Host "Install bginfo"
 [Environment]::SetEnvironmentVariable('FQDN', $HostName, [EnvironmentVariableTarget]::Machine)
 [Environment]::SetEnvironmentVariable('PUBIP', $PublicIPAddress, [EnvironmentVariableTarget]::Machine)
 
@@ -38,7 +38,7 @@ $Shortcut.TargetPath = "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.ex
 $shortcut.WorkingDirectory = "$Home"
 $Shortcut.Save()
 
-Write-Output Cleaning up
+Write-Host "Cleaning up"
 Remove-Item C:\provision.ps1
 
 Restart-Computer
