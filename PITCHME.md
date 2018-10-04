@@ -3,7 +3,18 @@
 ## Setting Up Internal Chocolatey Deployments
 ### Using Jenkins and Package Internalizer
 
+![](assets/images/cf-logo.png)
+
+---?image=assets/images/cf2018-sponsors.png&size=contain&color=white
+@title[ChocolateyFest Sponsors]
+@transition[none]
+
+---?image=assets/images/wifi.png&size=contain&color=white
+@title[Wifi]
+@transition[none]
+
 ---
+
 @title[Introduction - Gary]
 @transition[none]
 
@@ -19,11 +30,60 @@ Introduction - Gary
 ![Chocolatey](assets/images/chocolatey.png)
 ![Cake Build](assets/images/cake.png)
 ---
-@title[Introduction - Paul]
+@title[Who Am I? - Gary Ewan Park]
 @transition[none]
 
 @snap[north-west]
-Introduction - Paul
+@css[choco-blue](WHO AM I?)
+@snapend
+
+@snap[west span-65]
+Senior Software Engineer @ Chocolatey Software
+<br>
+<br>
+![MVP Logo](assets/images/mvp.jpg)
+![Cake Build](assets/images/cake.png)
+@snapend
+
+@snap[east span-30]
+![](assets/images/gary-avatar.png)
+<br>
+@css[bio-name](Gary Ewan Park)
+@snapend
+
+@snap[south-west bio-contact]
+@fa[twitter twitter-blue]&nbsp;&nbsp;gep13&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+@fa[github text-black]&nbsp;&nbsp;github.com/gep13&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+@fa[home text-blue]&nbsp;&nbsp;gep13.co.uk&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+@fa[envelope choco-blue]&nbsp;&nbsp;gary@chocolatey.io
+@snapend
+
+---
+@title[Who Am I? - Paul Broadwith]
+@transition[none]
+
+@snap[north-west]
+@css[choco-blue](WHO AM I?)
+@snapend
+
+@snap[west span-65]
+Senior Technical Engineer @ Chocolatey Software
+<br>
+<br>
+25+ years in IT in the defence, government, financial services and nuclear industry sectors
+@snapend
+
+@snap[east span-30]
+![](assets/images/paul.png)
+<br>
+@css[bio-name](Paul Broadwith)
+@snapend
+
+@snap[south-west bio-contact]
+@fa[twitter twitter-blue]&nbsp;&nbsp;pauby&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+@fa[github text-black]&nbsp;&nbsp;github.com/pauby&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+@fa[home text-blue]&nbsp;&nbsp;pauby.com&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+@fa[envelope choco-blue]&nbsp;&nbsp;paul@chocolatey.io
 @snapend
 
 ---
