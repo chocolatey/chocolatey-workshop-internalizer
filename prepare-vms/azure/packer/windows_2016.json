@@ -29,7 +29,6 @@
     {
       "scripts": [
         "../../scripts/PrepareWindows.ps1",
-        "../../scripts/SetWindowsPreferences.ps1",
         "../../scripts/InstallOpenSsh.ps1",
         "../../scripts/InstallChocolatey.ps1",
         "../../scripts/InstallBGInfo.ps1",

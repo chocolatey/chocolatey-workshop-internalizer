@@ -14,4 +14,6 @@ else {
     (New-Object Net.WebClient).DownloadFile('https://github.com/gep13/chocolatey-internalizer-workshop/raw/master/prepare-vms/azure/packer/background.jpg', 'C:\ProgramData\chocolatey\lib\bginfo\tools\background.jpg')
   }
   Write-Host "Download complete."
+
+  Set-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run -Name bginfo -Value 'c:\programdata\chocolatey\lib\bginfo\tools\bginfo.exe C:\ProgramData\chocolatey\lib\bginfo\tools\bginfo.bgi /accepteula /silent /timer:0'
 }
