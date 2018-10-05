@@ -73,29 +73,91 @@ Senior Technical Engineer @ Chocolatey Software
 
 ---
 
-## Agenda
+@title[Agenda]
+@transition[none]
+
+@snap[north-west]
+@css[choco-blue](Agenda)
+@snapend
 
 ---
 
-## Pre-Requisites
+@title[Pre-Requisites]
+@transition[none]
+
+@snap[north-west]
+@css[choco-blue](Pre-Requisites)
+@snapend
+
+* Computer with network connection and RDP client
+  * on Windows, you are probably all set
+  * on macOS, get Microsoft Remote Desktop from the App Store
+  * on Linux, get [rdesktop](https://wiki.ubuntuusers.de/rdesktop/)
+* Some Chocolatey knowledge
+  * but it's OK if you are not a Chocolatey expert!)
 
 ---
 
-## Hands-on Sections
+@title[Hands-on Sections]
+@transition[none]
+
+@snap[north-west]
+@css[choco-blue](Hands-on Sections)
+@snapend
+
+* This whole workshop is hands-on
+* We will use Chocolatey version 0.10.11 Trial Edition
+* We will use Chocolatey.Server 0.2.5
+* We will use Jenkins 2.138.1
+* All hands-on section are clearly identified, like the rectangle below:
 
 ---
 
-## We will (mostly) interact with RDP only
+@title[We will (mostly) interact with RDP only]
+@transition[none]
+
+@snap[north-west]
+@css[choco-blue](We will, mostly, interact with RDP only)
+@snapend
 
 ---
 
-## Terminals
+@title[Terminals]
+@transition[none]
+
+@snap[north-west]
+@css[choco-blue](Terminals)
+@snapend
+
+@snap[north-east]
+![PowerShell Terminal](assets/images/terminal.png)
+@snapend
+
+Once in a while, the instructions will say:
+
+@quote[Open a new terminal]
+
+There are multiple ways to do this:
+
+* open Start Menu, type PowerShell and click the PowerShell Icon
+* Press [Windows] + R, then enter `powershell` and press [Return]
 
 ---
 
-## Test RDP Access
+@title[Test RDP Access]
+@transition[none]
 
-Make sure all passwords are working
+@snap[north-west]
+@css[choco-blue](Test RDP Access)
+@snapend
+
+You should have been given a piece of paper like this:
+
+![RDP Access](assets/images/rdp-access.png)
+
+Test login credentials to make sure you have access.
+
+**NOTE:** Initial login will likely cause a reboot of VM.
 
 ---
 
