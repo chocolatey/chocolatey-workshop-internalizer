@@ -15,21 +15,6 @@
 
 ---
 
-@title[Introduction - Gary]
-@transition[none]
-
-@snap[north-west]
-Introduction - Gary
-@snapend
-
-* I work at [Chocolatey Software, Inc](https://chocolatey.org/)
-* I do open source at [github.com/gep13](http://github.com/gep13)
-* I blog at [gep13.co.uk](https://gep13.co.uk)
-
-![MVP Logo](assets/images/mvp.jpg)
-![Chocolatey](assets/images/chocolatey.png)
-![Cake Build](assets/images/cake.png)
----
 @title[Who Am I? - Gary Ewan Park]
 @transition[none]
 
@@ -88,6 +73,36 @@ Senior Technical Engineer @ Chocolatey Software
 
 ---
 
+## Agenda
+
+---
+
+## Pre-Requisites
+
+---
+
+## Hands-on Sections
+
+---
+
+## We will (mostly) interact with RDP only
+
+---
+
+## Terminals
+
+---
+
+## Test RDP Access
+
+Make sure all passwords are working
+
+---
+
+## Chocolatey Fundamentals
+
+---
+
 @title[Why do I need to internalize packages?]
 ## Why do I need to internalize packages?
 
@@ -96,15 +111,88 @@ Senior Technical Engineer @ Chocolatey Software
 @title[What can't I just use the packages downloaded from chocolatey.org?]
 ## Why can't I just use the packages downloaded from chocolatey.org?
 
----
++++
 
-@title[Why use Jenkins?]
-## Why use Jenkins?
+## Manual Internalization
+
+- This isn't fun
+
++++
+
+## Exercise
+
+- Run internalizer from command line
+- Look at generated content
+- Added switches to show different functionality
 
 ---
 
 @title[Why use Chocolatey.Server?]
 ## Why use Chocolatey.Server?
+
++++
+
+## Exercise - Chocolatey.Server
+
+- push a package to chocolatey.server
+- list the contents
+- install the package
+
++++
+
+## Exercise - Multiple Sources
+
+- Change source priorities
+- Disable/Remove chocolatey.org
+
+---
+
+@title[Why use Jenkins?]
+## Why use Jenkins?
+
++++
+
+## Exercise - Jenkins
+
+- Login into Jenkins with username/password
+- Find password in secret file
+- Talk about plugins, why they are needed
+- Scheduling the jobs
+
+---
+
+## Internalize Packages
+
+- Image from docs
+
++++
+
+## Set up first job
+
++++
+
+## Set up second job
+
++++
+
+## Setup third job
+
+---
+
+## Real World Scenarios
+
+- what are we trying to achieve
+- using Chocolatey.org as source for new package versions
+- internalizing those onto test repository
+- testing it out
+- pushing to internal production repository
+
++++
+
+## Exercise - Do that
+
+- Old version of Putty pushed to chocolatey.server
+- Run scripts, to watch internalization of new one
 
 ---
 
