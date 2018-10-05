@@ -80,6 +80,34 @@ Senior Technical Engineer @ Chocolatey Software
 @css[choco-blue](Agenda)
 @snapend
 
+@title[Agenda]
+@transition[none]
+
+@snap[north-west]
+@css[choco-blue](Agenda)
+@snapend
+
+* 18:30: Workshop Starts
+* 19:30: Comfort Break
+* 20:30: Comfort Break
+* 21:30: Workshop Ends
+
+Please feel free to interrupt for any questions that you might have.
+
+---
+@title[Agenda]
+@transition[none]
+
+@snap[north-west]
+Agenda
+@snapend
+
+* Get access to Workshop Environments
+* Chocolatey Fundamentals
+* Manual Internalization
+* Package Internalizer Fundamentals
+* Automatic Package Internalization
+
 ---
 
 @title[Pre-Requisites]
@@ -129,18 +157,14 @@ Senior Technical Engineer @ Chocolatey Software
 @css[choco-blue](Terminals)
 @snapend
 
-@snap[north-east]
-![PowerShell Terminal](assets/images/terminal.png)
-@snapend
-
 Once in a while, the instructions will say:
 
 @quote[Open a new terminal]
 
-There are multiple ways to do this:
+![PowerShell Terminal](assets/images/terminal.png)
 
-* open Start Menu, type PowerShell and click the PowerShell Icon
-* Press [Windows] + R, then enter `powershell` and press [Return]
+This needs to be an Administrator session.
+* Press [Windows], type `powershell`, right click on entry and select `Run as Administrator`
 
 ---
 
@@ -163,6 +187,118 @@ Test login credentials to make sure you have access.
 
 ## Chocolatey Fundamentals
 
++++
+
+## Exercise - Install putty
+
+```
+choco install putty
+```
+
++++
+
+## Result
+
+![Output from choco install putty](assets/images/choco-install-putty.png)
+
++++
+
+## Exercise - List local packages
+
+```
+choco list -lo
+```
+
+```
+choco list --local-only
+```
++++
+
+## Result
+
+![Output from choco list -lo](assets/images/choco-list-lo.png)
+
++++
+
+## Exercise - List all packages
+
+```
+choco list -li
+```
+
+```
+choco list --local-only --include-programs
+```
+
++++
+
+## Result
+
+![Output from choco list -li](assets/images/choco-list-li.png)
+
++++
+
+## Exercise - Upgrade all packages
+
+```
+choco upgrade all
+```
+
++++
+
+## Result
+
+![Output from choco upgrade all](assets/images/choco-upgrade-all.png)
+
++++
+
+## Exercise - Chocolatey Sources
+
+```
+choco source
+```
+
+```
+choco source list
+```
+
++++
+
+## Result
+
+![Output from choco source](assets/images/choco-source.png)
+
++++
+
+## Exercise - choco outdated
+
+```
+choco outdated
+```
+
++++
+
+## Result
+
+![Output from choco outdated](assets/images/choco-outdated.png)
+
++++
+
+## Exercise - choco optimize
+
+```
+choco optimize
+```
+
+```
+choco optimize --reduce-nupkg-only
+```
+
++++
+
+## Result
+
+![Output from choco optimize](assets/images/choco-optimize.png)
 ---
 
 @title[Why do I need to internalize packages?]
