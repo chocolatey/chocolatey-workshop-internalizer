@@ -309,21 +309,81 @@ choco optimize --reduce-nupkg-only
 @title[What can't I just use the packages downloaded from chocolatey.org?]
 ## Why can't I just use the packages downloaded from chocolatey.org?
 
-+++
+---
 
 ## Manual Internalization
 
-- This isn't fun
+```
+mkdir chocolateyfest
+cd chocolateyfest
+choco download putty.install
+ii .
+```
++++
+
+## Result
+
+![Output from choco download](assets/images/choco-download-putty.install.png)
+
++++
+
+![Result of choco download](assets/images/choco-download-putty.install-2.png)
+![Result of choco download](assets/images/choco-download-putty.install-3.png)
+
++++
+
+## That was too easy..
+
+```
+choco download launchy
+```
+
++++
+
+## Result
+
+![Output from choco download](assets/images/choco-download-launchy.png)
+
++++
+
+![Result of choco download](assets/images/choco-download-launchy-2.png)
+![Result of choco download](assets/images/choco-download-launchy-3.png)
 
 +++
 
 ## Exercise
 
-- Run internalizer from command line
-- Look at generated content
-- Added switches to show different functionality
+* Download Launchy.exe
+* Place within the chocolatey package folder
+* Modify chocolateyInstall.ps1 file to use new location
+* Switch to using `Install-ChocolateyInstallPackage`
+* Or use `-UseOriginalLocation` flag
+* Run `choco pack` to generate package
+* Deploy and test
 
----
++++
+
+## The easy way...
+
+```
+choco download launchy `
+  --internalize `
+  --internalize-all-urls `
+  --append-use-original-location
+```
+
++++
+
+## Result
+
+![Output from choco download](assets/images/choco-download-launchy-6.png)
+
++++
+
+![Result of choco download](assets/images/choco-download-launchy-7.png)
+![Result of choco download](assets/images/choco-download-launchy-8.png)
+
++++
 
 @title[Why use Chocolatey.Server?]
 ## Why use Chocolatey.Server?
