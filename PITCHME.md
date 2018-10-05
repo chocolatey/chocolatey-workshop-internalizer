@@ -434,10 +434,101 @@ choco list --source="'http://localhost/chocolatey'"
 
 ![Output from choco list](assets/images/choco-list.png)
 
----
 
+## Internalize Packages
+
+---?image=assets/images/choco-arch.png&size=contain&color=white
+
+---?image=assets/images/choco-arch-internalizer.png&size=contain&color=white
+
+@snap[north-west span-30]
+
+@ul[squares text-black]
+- Interalizing
+- Testing
+- Deployment
+@ulend
+
+@snap
+---
+@title[What are we trying to achieve?]
+
+## What are we trying to achieve?
+
+- Reliable package source
+- Trusted package contents
+- Working golden images
+
+---
+@title[Using Community Repository]
+
+## Using Community Repository
+
+- Over 6000 _unique_ packages on Chocolatey.org
+- Leverage pre-built packages
+- Internalize them for best of both worlds
+
+---
+@title[Internalizing To Test Repository]
+
+## Internalizing To Test Repository
+
+- Primary internal feed for all new packages
+- Master feed to manage
+
+---
+@title[Testing Packages]
+
+## Testing Packages
+
+- Pester / PSScriptAnalyzer
+- Identify test machines
+- Working with golden images? (Vagrant / VM)
+
+---
+@title[Push To Internal Production Repository]
+
+## Push To Internal Production Repository
+
+- Master feed for production deployment
+- Tested packages
+- Working in your environment
+
+---
+@title[How Do We Make This Work?]
+
+## How Do We Make All Of This Work?
+
+- Repositories - **Chocolatey.Server**
+- Scripts - **PowerShell**
+- Automation - **Jenkins**
+
+---
+@title[Why Use Chocolatey.Server]
+
+## Why Use Chocolatey.Server?
+
+- Simple to setup
+- Chocolatey package and scripted config
+- Nexus, Artifactory, MyGet and others instead
+
+---
+@title[Why use PowerShell?]
+
+## Why PowerShell?
+
+- Chocolatey supports it natively
+- Widely used in Windows environments
+- Give admins what they know
+
+---
 @title[Why use Jenkins?]
-## Why use Jenkins?
+
+## Why Jenkins?
+
+- Widely used
+- Over 100,000 installs
+- Give admins what they know
 
 +++
 
@@ -449,11 +540,6 @@ choco list --source="'http://localhost/chocolatey'"
 - Scheduling the jobs
 
 ---
-
-## Internalize Packages
-
-
----?image=assets/images/choco-arch.png&size=contain&color=white
 
 +++
 
@@ -528,13 +614,30 @@ node {
 
 ## Real World Scenarios
 
-- what are we trying to achieve
-- using Chocolatey.org as source for new package versions
-- internalizing those onto test repository
-- testing it out
-- pushing to internal production repository
+---
+@title[Dev Team Finished The App!]
 
-+++
+## Dev Team Finally Finish The App
+
+- Passed to Ops for deployment
+- Needs tested on golden images
+- Needs deployed to estate
+
+---
+@title[Finance Need AdobeReader Installed]
+
+## Finance Need AdobeReader Installed
+
+- Package needs created
+- Needs tested on golden images
+- Needs deployed to estate
+
+---
+@title[Your Scenarios?]
+
+## What Are Your Real World Scenarios?
+
+---
 
 ## Exercise - Do that
 
