@@ -452,20 +452,78 @@ choco list --source="'http://localhost/chocolatey'"
 
 ## Internalize Packages
 
-- Image from docs
+
+---?image=assets/images/choco-arch.png&size=contain&color=white
 
 +++
 
-## Set up first job
+## Jenkins: Sync Production Repository From Test
+
+- Synchronise the production repository from the test  repository
+- Take a look at the code in `C:\Scripts\Update-ProdRepoFromTest.ps1`
+- Jenkins PowerShell code:
+
+```
+node {
+    powershell '''
+        Set-Location (Join-Path -Path $env:SystemDrive -ChildPath 'scripts')
+        .\\Update-ProdRepoFromTest.ps1 `
+            -ProdRepo $env:P_PROD_REPO_URL `
+            -ProdRepoApiKey $env:P_PROD_REPO_API_KEY `
+            -TestRepo $env:P_TEST_REPO_URL `
+            -Verbose
+    '''
+}
+```
 
 +++
 
-## Set up second job
+## Jenkins: Update Test Repository Package Versions
+
+- Get's the latest versions of packages in the test repository (from the Community Repository)
+- Take a look at `C:\Scripts\Get-UpdatedPackage.ps1`
+- Jenkins PowerShell code:
+
+```
+node {
+    powershell '''
+        Set-Location (Join-Path -Path $env:SystemDrive -ChildPath 'scripts')
+        .\\Get-UpdatedPackage.ps1 -LocalRepo $env:P_LOCAL_REPO_URL `
+            -LocalRepoApiKey $env:P_LOCAL_REPO_API_KEY `
+            -RemoteRepo $env:P_REMOTE_REPO_URL `
+            -Verbose
+    '''
+}
+```
 
 +++
 
-## Setup third job
+## Jenkins: Internalize A New Package
 
+- Internalize a package to the test repository (from the Community Repository)
+- Starts the first Jenkins job to update the production repository from test
+- Jenkins PowerShell code:
+
+```
+node {
+    powershell '''
+        $temp = Join-Path -Path $env:TEMP -ChildPath ([GUID]::NewGuid()).Guid
+        $null = New-Item -Path $temp -ItemType Directory
+        Write-Output "Created temporary directory '$temp'."
+        ($env:P_PKG_LIST).split(';') | ForEach-Object {
+            choco download $_ --no-progress --internalize --force --internalize-all-urls --append-use-original-location --output-directory=$temp --source='https://chocolatey.org/api/v2/'
+            if ($LASTEXITCODE -eq 0) {
+                $package = (Get-Item -Path (Join-Path -Path $temp -ChildPath "$_*.nupkg")).fullname
+                choco push $package --source "$($env:P_DST_URL)" --api-key "$($env:P_API_KEY)" --force
+            }
+            else {
+                Write-Output "Failed to download package '$_'"
+            }
+        }
+        Remove-Item -Path $temp -Force -Recurse
+    '''
+}
+```
 ---
 
 ## Real World Scenarios
