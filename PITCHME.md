@@ -383,25 +383,56 @@ choco download launchy `
 ![Result of choco download](assets/images/choco-download-launchy-7.png)
 ![Result of choco download](assets/images/choco-download-launchy-8.png)
 
-+++
+---
 
 @title[Why use Chocolatey.Server?]
 ## Why use Chocolatey.Server?
 
 +++
 
-## Exercise - Chocolatey.Server
+## Exercise - Push Package to Chocolatey.Server
 
-- push a package to chocolatey.server
-- list the contents
-- install the package
+```
+choco source list
+choco list --source="'http://localhost/chocolatey'"
+choco push ./launchy.2.5.0.20140301.nupkg `
+  --source="'http://localhost/chocolatey'"
+```
+
+This will error out.  We need to know the Api Key to push packages to this feed
 
 +++
 
-## Exercise - Multiple Sources
+## Exercise - Get Api Key
 
-- Change source priorities
-- Disable/Remove chocolatey.org
+* Navigate to `C:\tools\chocolatey.server`
+* Open `web.config` file in text editor
+* Search for `apiKey`
+* Take a note of the value
+
++++
+
+## Exercise - Push Package to Chocolatey.Server
+
+```
+choco push ./launchy.2.5.0.20140301.nupkg `
+  --source="'http://localhost/chocolatey'" `
+  --api-key chocolateyrocks
+```
+
++++
+
+## Results
+
+![Output from choco push](assets/images/choco-push.png)
+
++++
+
+```
+choco list --source="'http://localhost/chocolatey'"
+```
+
+![Output from choco list](assets/images/choco-list.png)
 
 ---
 
