@@ -427,11 +427,7 @@ Test login credentials to make sure you have access.
 @fa[keyboard-o]()&nbsp;Exercise
 <br>
 
-<pre><code class="lang-powershell hljs"><span class="line">choco download launchy `
-  --internalize `
-  --internalize-all-urls `
-  --append-use-original-location
-</span></code></pre>
+<pre><code class="lang-powershell hljs"><span class="line">choco download launchy &#x60;</span><span class="line">  --internalize &#x60;</span><span class="line">  --internalize-all-urls &#x60;</span><span class="line">  --append-use-original-location</span>
 
 @snapend
 
@@ -635,10 +631,11 @@ This will error out.  We need to know the Api Key to push packages to this feed
 <br>
 
 @ul[](false)
-- Login into Jenkins with username/password
+- Open Windows Explorer
+- Navigate to c:/Program Files (x86)/Jenkins/secrets
+- Open initialAdminPassword file in text editor
 - Find password in secret file
-- Talk about plugins, why they are needed
-- Scheduling the jobs
+- Login into Jenkins with username admin and this password
 @ulend
 @snapend
 
