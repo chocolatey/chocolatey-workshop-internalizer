@@ -28,7 +28,6 @@
   "provisioners": [
     {
       "scripts": [
-        "../../scripts/PrepareWindows.ps1",
         "../../scripts/InstallOpenSsh.ps1",
         "../../scripts/InstallChocolatey.ps1",
         "../../scripts/InstallBGInfo.ps1",
@@ -37,7 +36,6 @@
         "../../scripts/ProvisionChocolateyServer.ps1",
         "../../scripts/ProvisionJenkins.ps1",
         "../../scripts/InstallChocolateyLicensed.ps1",
-        "../../scripts/NotifyGuiAppsOfEnvironmentChanges.ps1",
         "../../scripts/InstallWindowsUpdates.ps1"
       ],
       "environment_vars": [
