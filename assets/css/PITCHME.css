@@ -74,3 +74,13 @@ h4 { font-size: 2rem !important; }
 .text-purple { color: #643B85 !important; }
 .text-yellow { color: #F5DB2E !important; }
 .text-white { color: #FFFFFF !important; }
+
+.exercise-box {
+    width: 100%;
+    border:1px solid black !important;
+    padding: 5px 15px !important;
+    background-color: grey;
+    text-align: left;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif !important;
+  }
