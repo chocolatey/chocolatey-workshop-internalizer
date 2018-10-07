@@ -649,34 +649,45 @@ This will error out.  We need to know the Api Key to push packages to this feed
 
 ---
 
-## Jenkins: Sync Production Repository From Test
+## Automate Internalization With Jenkins Jobs
 
-- Synchronise the production repository from the test  repository
-- Take a look at the code in `C:\Scripts\Update-ProdRepoFromTest.ps1`
-- Jenkins PowerShell code:
-
-```powershell
-node {
-    powershell '''
-        Set-Location (Join-Path -Path $env:SystemDrive -ChildPath 'scripts')
-        .\\Update-ProdRepoFromTest.ps1 `
-            -ProdRepo $env:P_PROD_REPO_URL `
-            -ProdRepoApiKey $env:P_PROD_REPO_API_KEY `
-            -TestRepo $env:P_TEST_REPO_URL `
-            -Verbose
-    '''
-}
-```
+- Add automation jobs
+- PowerShell code does the heavy lifting
+- Jobs:
+    - Update Test Repository Package Versions
 
 +++
 
-## Jenkins: Update Test Repository Package Versions
+## Create Jenkins Jobs
+### Update Test Repository Package Versions
 
-- Get's the latest versions of packages in the test repository (from the Community Repository)
+@snap[center exercise-box]
+
+@fa[keyboard-o]()&nbsp;Exercise
+<br>
+
+@ul[](false)
+
+- Click **New Item**
+- Name the job `Update Test Repository Package Versions`
+- Click **Pipeline**
+- Tick options: **This project is parameterized** and **Do not allow concurrent builds**;
+- Add **string** parameter `P_LOCAL_REPO_URL` with value `http://localhost/chocolatey`
+- Add **string** parameter `P_REMOTE_REPO_URL` with value `https://chocolatey.org/api/v2/`
+- Add **password** parameter `P_LOCAL_REPO_API_KEY` with value `chocolateyrocks`
+
+@ulend
+@snapend
+
++++
+
+## Create Jenkins Jobs
+### Update Test Repository Package Versions
+
 - Take a look at `C:\Scripts\Get-UpdatedPackage.ps1`
-- Jenkins PowerShell code:
+- Add pipeline script:
 
-```powershell
+<pre><code class="lang-powershell hljs"><span class="line">
 node {
     powershell '''
         Set-Location (Join-Path -Path $env:SystemDrive -ChildPath 'scripts')
@@ -686,17 +697,42 @@ node {
             -Verbose
     '''
 }
-```
+</span></code></pre>
+
+- Click ***Save***
 
 +++
 
-## Jenkins: Internalize A New Package
+## Create Jenkins Jobs
+### Internalize Packages
 
-- Internalize a package to the test repository (from the Community Repository)
-- Starts the first Jenkins job to update the production repository from test
-- Jenkins PowerShell code:
+@snap[center exercise-box]
 
-```powershell
+@fa[keyboard-o]()&nbsp;Exercise
+<br>
+
+@ul[](false)
+
+- Click **New Item**
+- Name the job `Internalize Packages`
+- Click **Pipeline**
+- Tick options: **This project is parameterized** and **Do not allow concurrent builds**;
+- Add **string** parameter `P_PKG_LIST` with blank value
+- Add **string** parameter `P_DST_URL` with value `http://localhost/chocolatey`
+- Add **password** parameter `P_LOCAL_REPO_API_KEY` with value `chocolateyrocks`
+
+@ulend
+@snapend
+
++++
+
+## Create Jenkins Jobs
+### Internalize Packages
+
+- Add pipeline script:
+
+<pre><code class="lang-powershell hljs"><span class="line">
+
 node {
     powershell '''
         $temp = Join-Path -Path $env:TEMP -ChildPath ([GUID]::NewGuid()).Guid
@@ -715,7 +751,68 @@ node {
         Remove-Item -Path $temp -Force -Recurse
     '''
 }
-```
+</span></code></pre>
+
+- Click ***Save***
+
++++
+
+## Create Jenkins Jobs
+### Sync Production Repository From Test
+
+@snap[center exercise-box]
+
+@fa[keyboard-o]()&nbsp;Exercise
+<br>
+
+@ul[](false)
+
+- Click **New Item**
+- Name the job `Sync Production Repository From Test`
+- Click **Pipeline**
+- Tick options: **This project is parameterized** and **Do not allow concurrent builds**;
+- Add **string** parameter `P_PROD_REPO_URL` with value `http://localhost:81/chocolatey`
+- Add **password** parameter `P_PROD_REPO_API_KEY` with value `chocolateyrocks`
+- Add **string** parameter `P_TEST_REPO_URL` with value `http://localhost/chocolatey`
+- Continue on next slide ...
+
+@ulend
+@snapend
+
++++
+
+## Create Jenkins Jobs
+### Sync Production Repository From Test
+
+- Take a look at the code in `C:\Scripts\Update-ProdRepoFromTest.ps1`
+
+@snap[center exercise-box]
+
+@fa[keyboard-o]()&nbsp;Exercise
+<br>
+
+@ul[](false)
+
+- Add pipeline script:
+
+<pre><code class="lang-powershell hljs"><span class="line">
+node {
+    powershell '''
+        Set-Location (Join-Path -Path $env:SystemDrive -ChildPath 'scripts')
+        .\\Update-ProdRepoFromTest.ps1 `
+            -ProdRepo $env:P_PROD_REPO_URL `
+            -ProdRepoApiKey $env:P_PROD_REPO_API_KEY `
+            -TestRepo $env:P_TEST_REPO_URL `
+            -Verbose
+    '''
+}
+</span></code></pre>
+
+- Click ***Save***
+
+@ulend
+@snapend
+
 ---
 
 ## Real World Scenarios
