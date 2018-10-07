@@ -349,10 +349,11 @@ Test login credentials to make sure you have access.
 @title[Why do I need to internalize packages?]
 ## Why do I need to internalize packages?
 
----
++++
 
-@title[What can't I just use the packages downloaded from chocolatey.org?]
-## Why can't I just use the packages downloaded from chocolatey.org?
+* Reliability
+* Trust and Control
+* https://chocolatey.org/docs/community-packages-disclaimer
 
 ---
 
