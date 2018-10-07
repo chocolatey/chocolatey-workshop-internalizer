@@ -164,15 +164,6 @@ Agenda
 
 ---
 
-@title[We will (mostly) interact with RDP only]
-@transition[none]
-
-@snap[north-west]
-@css[choco-blue](We will, mostly, interact with RDP only)
-@snapend
-
----
-
 @title[Terminals]
 @transition[none]
 
