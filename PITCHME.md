@@ -531,16 +531,15 @@ This will error out.  We need to know the Api Key to push packages to this feed
 
 ---?image=assets/images/choco-arch-internalizer.png&size=contain&color=white
 
-@snap[north-west span-30]
-
-@ul[squares text-black]
-- Interalizing
-- Testing
-- Deployment
-@ulend
-
+@transition[none]
+@snap[north-west]
+<br />
+<ul>
+  <li style="color: black">Interalizing</li>
+  <li style="color: black">Testing</li>
+  <li style="color: black">Deployment</li>
+</ul>
 @snapend
-
 ---
 
 @title[What are we trying to achieve?]
