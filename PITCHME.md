@@ -212,11 +212,16 @@ Test login credentials to make sure you have access.
 
 +++
 
-## Exercise - Install putty
+## Install putty
 
-```powershell
-choco install putty
-```
+@snap[center exercise-box]
+
+@fa[keyboard-o]()&nbsp;Exercise
+<br>
+
+<pre><code class="lang-powershell hljs"><span class="line">choco install putty</span></code></pre>
+
+@snapend
 
 +++
 
@@ -226,15 +231,16 @@ choco install putty
 
 +++
 
-## Exercise - List local packages
+## List local packages
 
-```powershell
-choco list -lo
-```
+@snap[center exercise-box]
 
-```powershell
-choco list --local-only
-```
+@fa[keyboard-o]()&nbsp;Exercise
+<br>
+
+<pre><code class="lang-powershell hljs"><span class="line">choco list -lo</span><span class="line">choco list --local-only</span></code></pre>
+@snapend
+
 +++
 
 ## Result
@@ -243,15 +249,15 @@ choco list --local-only
 
 +++
 
-## Exercise - List all packages
+## List all packages
 
-```powershell
-choco list -li
-```
+@snap[center exercise-box]
 
-```powershell
-choco list --local-only --include-programs
-```
+@fa[keyboard-o]()&nbsp;Exercise
+<br>
+
+<pre><code class="lang-powershell hljs"><span class="line">choco list -li</span><span class="line">choco list --local-only --include-programs</span></code></pre>
+@snapend
 
 +++
 
@@ -261,11 +267,14 @@ choco list --local-only --include-programs
 
 +++
 
-## Exercise - Upgrade all packages
+## Upgrade all packages
 
-```powershell
-choco upgrade all
-```
+@snap[center exercise-box]
+
+@fa[keyboard-o]()&nbsp;Exercise
+<br>
+
+<pre><code class="lang-powershell hljs"><span class="line">choco upgrade all</span></code></pre>
 
 +++
 
@@ -275,15 +284,14 @@ choco upgrade all
 
 +++
 
-## Exercise - Chocolatey Sources
+## Viewing Chocolatey Sources
 
-```powershell
-choco source
-```
+@snap[center exercise-box]
 
-```powershell
-choco source list
-```
+@fa[keyboard-o]()&nbsp;Exercise
+<br>
+
+<pre><code class="lang-powershell hljs"><span class="line">choco source</span><span class="line">choco source list</span></code></pre>
 
 +++
 
@@ -293,11 +301,14 @@ choco source list
 
 +++
 
-## Exercise - choco outdated
+## Checking for outdated packages
 
-```powershell
-choco outdated
-```
+@snap[center exercise-box]
+
+@fa[keyboard-o]()&nbsp;Exercise
+<br>
+
+<pre><code class="lang-powershell hljs"><span class="line">choco outdated</span></code></pre>
 
 +++
 
@@ -307,21 +318,21 @@ choco outdated
 
 +++
 
-## Exercise - choco optimize
+## Reduce size of files on disk
 
-```powershell
-choco optimize
-```
+@snap[center exercise-box]
 
-```powershell
-choco optimize --reduce-nupkg-only
-```
+@fa[keyboard-o]()&nbsp;Exercise
+<br>
+
+<pre><code class="lang-powershell hljs"><span class="line">choco optimize</span><span class="line">choco optimize --reduce-nupkg-only</span></code></pre>
 
 +++
 
 ## Result
 
 ![Output from choco optimize](assets/images/choco-optimize.png)
+
 ---
 
 @title[Why do I need to internalize packages?]
@@ -336,12 +347,13 @@ choco optimize --reduce-nupkg-only
 
 ## Manual Internalization
 
-```powershell
-mkdir chocolateyfest
-cd chocolateyfest
-choco download putty.install
-ii .
-```
+@snap[center exercise-box]
+
+@fa[keyboard-o]()&nbsp;Exercise
+<br>
+
+<pre><code class="lang-powershell hljs"><span class="line">mkdir chocolateyfest</span><span class="line">cd chocolateyfest</span><span class="line">choco download putty.install</span><span class="line">ii .</span></code></pre>
+
 +++
 
 ## Result
@@ -355,11 +367,14 @@ ii .
 
 +++
 
-## That was too easy..
+## That was too easy...
 
-```powershell
-choco download launchy
-```
+@snap[center exercise-box]
+
+@fa[keyboard-o]()&nbsp;Exercise
+<br>
+
+<pre><code class="lang-powershell hljs"><span class="line">choco download launchy</span></code></pre>
 
 +++
 
@@ -374,26 +389,39 @@ choco download launchy
 
 +++
 
-## Exercise
+## Perform manual internalization steps
 
-* Download Launchy.exe
-* Place within the chocolatey package folder
-* Modify chocolateyInstall.ps1 file to use new location
-* Switch to using `Install-ChocolateyInstallPackage`
-* Or use `-UseOriginalLocation` flag
-* Run `choco pack` to generate package
-* Deploy and test
+@snap[center exercise-box]
+
+@fa[keyboard-o]()&nbsp;Exercise
+<br>
+
+@ul[](false)
+- Download Launchy.exe
+- Place within the chocolatey package folder
+- Modify chocolateyInstall.ps1 file to use new location
+- Switch to using `Install-ChocolateyInstallPackage`
+- Or use `-UseOriginalLocation` flag
+- Run `choco pack` to generate package
+- Deploy and test
+@ulend
 
 +++
 
 ## The easy way...
 
-```powershell
-choco download launchy `
+@snap[center exercise-box]
+
+@fa[keyboard-o]()&nbsp;Exercise
+<br>
+
+<pre><code class="lang-powershell hljs"><span class="line">choco download launchy `
   --internalize `
   --internalize-all-urls `
   --append-use-original-location
-```
+</span></code></pre>
+
+@snapend
 
 +++
 
@@ -413,35 +441,52 @@ choco download launchy `
 
 +++
 
-## Exercise - Push Package to Chocolatey.Server
+## Push Package to Chocolatey.Server
 
-```powershell
-choco source list
-choco list --source="'http://localhost/chocolatey'"
-choco push ./launchy.2.5.0.20140301.nupkg `
+@snap[center exercise-box]
+
+@fa[keyboard-o]()&nbsp;Exercise
+<br>
+
+<pre><code class="lang-powershell hljs"><span class="line">choco source list</span><span class="line">choco list --source="'http://localhost/chocolatey'"</span><span class="line">choco push ./launchy.2.5.0.20140301.nupkg `
   --source="'http://localhost/chocolatey'"
-```
+</span></code></pre>
 
 This will error out.  We need to know the Api Key to push packages to this feed
 
-+++
-
-## Exercise - Get Api Key
-
-* Navigate to `C:\tools\chocolatey.server`
-* Open `web.config` file in text editor
-* Search for `apiKey`
-* Take a note of the value
+@snapend
 
 +++
 
-## Exercise - Push Package to Chocolatey.Server
+## Get Api Key
 
-```powershell
-choco push ./launchy.2.5.0.20140301.nupkg `
+@snap[center exercise-box]
+
+@fa[keyboard-o]()&nbsp;Exercise
+<br>
+
+@ul[](false)
+- Navigate to `C:\tools\chocolatey.server`
+- Open `web.config` file in text editor
+- Search for `apiKey`
+- Take a note of the value
+@ulend
+
+@snapend
+
++++
+
+## Push Package to Chocolatey.Server
+
+@snap[center exercise-box]
+
+@fa[keyboard-o]()&nbsp;Exercise
+<br>
+
+<pre><code class="lang-powershell hljs"><span class="line">choco push ./launchy.2.5.0.20140301.nupkg `
   --source="'http://localhost/chocolatey'" `
   --api-key chocolateyrocks
-```
+</span></code></pre>
 
 +++
 
@@ -451,12 +496,23 @@ choco push ./launchy.2.5.0.20140301.nupkg `
 
 +++
 
-```powershell
-choco list --source="'http://localhost/chocolatey'"
-```
+## Verify package is now available
+
+@snap[center exercise-box]
+
+@fa[keyboard-o]()&nbsp;Exercise
+<br>
+
+<pre><code class="lang-powershell hljs"><span class="line">choco list --source="'http://localhost/chocolatey'"</span></code></pre>
+@snapend
+
++++
+
+## Results
 
 ![Output from choco list](assets/images/choco-list.png)
 
+---
 
 ## Internalize Packages
 
@@ -472,8 +528,10 @@ choco list --source="'http://localhost/chocolatey'"
 - Deployment
 @ulend
 
-@snap
+@snapend
+
 ---
+
 @title[What are we trying to achieve?]
 
 ## What are we trying to achieve?
@@ -483,6 +541,7 @@ choco list --source="'http://localhost/chocolatey'"
 - Working golden images
 
 ---
+
 @title[Using Community Repository]
 
 ## Using Community Repository
@@ -492,6 +551,7 @@ choco list --source="'http://localhost/chocolatey'"
 - Internalize them for best of both worlds
 
 ---
+
 @title[Internalizing To Test Repository]
 
 ## Internalizing To Test Repository
@@ -500,6 +560,7 @@ choco list --source="'http://localhost/chocolatey'"
 - Master feed to manage
 
 ---
+
 @title[Testing Packages]
 
 ## Testing Packages
@@ -509,6 +570,7 @@ choco list --source="'http://localhost/chocolatey'"
 - Working with golden images? (Vagrant / VM)
 
 ---
+
 @title[Push To Internal Production Repository]
 
 ## Push To Internal Production Repository
@@ -518,6 +580,7 @@ choco list --source="'http://localhost/chocolatey'"
 - Working in your environment
 
 ---
+
 @title[How Do We Make This Work?]
 
 ## How Do We Make All Of This Work?
@@ -527,6 +590,7 @@ choco list --source="'http://localhost/chocolatey'"
 - Automation - **Jenkins**
 
 ---
+
 @title[Why Use Chocolatey.Server]
 
 ## Why Use Chocolatey.Server?
@@ -536,6 +600,7 @@ choco list --source="'http://localhost/chocolatey'"
 - Nexus, Artifactory, MyGet and others instead
 
 ---
+
 @title[Why use PowerShell?]
 
 ## Why PowerShell?
@@ -545,6 +610,7 @@ choco list --source="'http://localhost/chocolatey'"
 - Give admins what they know
 
 ---
+
 @title[Why use Jenkins?]
 
 ## Why Jenkins?
@@ -555,16 +621,22 @@ choco list --source="'http://localhost/chocolatey'"
 
 +++
 
-## Exercise - Jenkins
+## Log into Jenkins
 
+@snap[center exercise-box]
+
+@fa[keyboard-o]()&nbsp;Exercise
+<br>
+
+@ul[](false)
 - Login into Jenkins with username/password
 - Find password in secret file
 - Talk about plugins, why they are needed
 - Scheduling the jobs
+@ulend
+@snapend
 
 ---
-
-+++
 
 ## Jenkins: Sync Production Repository From Test
 
