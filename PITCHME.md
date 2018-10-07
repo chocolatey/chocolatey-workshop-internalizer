@@ -878,13 +878,6 @@ node {
 
 ---
 
-## Exercise - Do that
-
-- Old version of Putty pushed to chocolatey.server
-- Run scripts, to watch internalization of new one
-
----
-
 @title[Questions]
 ## Questions?
 
