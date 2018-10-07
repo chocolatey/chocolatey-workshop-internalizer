@@ -212,6 +212,26 @@ Test login credentials to make sure you have access.
 
 +++
 
+@title[What is Chocolatey?]
+
+## What is Chocolatey?
+
++++
+
+@title[A Definition...]
+
+### A Definition...
+
+@quote[Chocolatey is a package manager for Windows, like apt-get or yum but for Windows. It was designed to be a decentralized framework for quickly installing applications and tools that you need. It is built on the NuGet infrastructure currently using PowerShell as its focus for delivering packages from the distros to your door, err computer.]
+
++++
+
+@title[It's Magic!]
+
+![It's Magic](assets/images/magic.gif)
+
++++
+
 ## Install putty
 
 @snap[center exercise-box]
