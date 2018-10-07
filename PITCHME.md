@@ -759,7 +759,6 @@ node {
 - Add pipeline script:
 
 <pre><code class="lang-powershell hljs"><span class="line">
-
 node {
     powershell '''
         $temp = Join-Path -Path $env:TEMP -ChildPath ([GUID]::NewGuid()).Guid
@@ -801,8 +800,6 @@ node {
 - Click **Pipeline**
 - Tick options: **This project is parameterized** and **Do not allow concurrent builds**;
 
-- Continue on next slide ...
-
 @ulend
 @snapend
 
@@ -823,18 +820,13 @@ node {
 
 +++
 
-## Create Jenkins Jobs
-### Sync Production Repository From Test
-
-- Take a look at the code in `C:\Scripts\Update-ProdRepoFromTest.ps1`
-
 @snap[center exercise-box]
 
 @fa[keyboard-o]()&nbsp;Exercise
 <br>
 
 @ul[](false)
-
+- Take a look at the code in `C:\Scripts\Update-ProdRepoFromTest.ps1`
 - Add pipeline script:
 
 <pre><code class="lang-powershell hljs"><span class="line">

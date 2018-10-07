@@ -18,6 +18,9 @@ h4 { font-size: 2rem !important; }
     box-shadow: none;
 }
 
+.reveal pre {
+    margin:0px !important;
+}
 .bio image {
     width: 30%;
 }
