@@ -3,7 +3,7 @@
 ## Setting Up Internal Chocolatey Deployments
 ### Using Jenkins and Package Internalizer
 
-![](assets/images/cf-logo.png)
+![ChocolateyFest Logo](assets/images/cf-logo.png)
 
 ---?image=assets/images/cf2018-sponsors.png&size=contain&color=white
 @title[ChocolateyFest Sponsors]
@@ -191,7 +191,7 @@ Test login credentials to make sure you have access.
 
 ## Exercise - Install putty
 
-```
+```powershell
 choco install putty
 ```
 
@@ -205,11 +205,11 @@ choco install putty
 
 ## Exercise - List local packages
 
-```
+```powershell
 choco list -lo
 ```
 
-```
+```powershell
 choco list --local-only
 ```
 +++
@@ -222,11 +222,11 @@ choco list --local-only
 
 ## Exercise - List all packages
 
-```
+```powershell
 choco list -li
 ```
 
-```
+```powershell
 choco list --local-only --include-programs
 ```
 
@@ -240,7 +240,7 @@ choco list --local-only --include-programs
 
 ## Exercise - Upgrade all packages
 
-```
+```powershell
 choco upgrade all
 ```
 
@@ -254,11 +254,11 @@ choco upgrade all
 
 ## Exercise - Chocolatey Sources
 
-```
+```powershell
 choco source
 ```
 
-```
+```powershell
 choco source list
 ```
 
@@ -272,7 +272,7 @@ choco source list
 
 ## Exercise - choco outdated
 
-```
+```powershell
 choco outdated
 ```
 
@@ -286,11 +286,11 @@ choco outdated
 
 ## Exercise - choco optimize
 
-```
+```powershell
 choco optimize
 ```
 
-```
+```powershell
 choco optimize --reduce-nupkg-only
 ```
 
@@ -313,7 +313,7 @@ choco optimize --reduce-nupkg-only
 
 ## Manual Internalization
 
-```
+```powershell
 mkdir chocolateyfest
 cd chocolateyfest
 choco download putty.install
@@ -334,7 +334,7 @@ ii .
 
 ## That was too easy..
 
-```
+```powershell
 choco download launchy
 ```
 
@@ -365,7 +365,7 @@ choco download launchy
 
 ## The easy way...
 
-```
+```powershell
 choco download launchy `
   --internalize `
   --internalize-all-urls `
@@ -392,7 +392,7 @@ choco download launchy `
 
 ## Exercise - Push Package to Chocolatey.Server
 
-```
+```powershell
 choco source list
 choco list --source="'http://localhost/chocolatey'"
 choco push ./launchy.2.5.0.20140301.nupkg `
@@ -414,7 +414,7 @@ This will error out.  We need to know the Api Key to push packages to this feed
 
 ## Exercise - Push Package to Chocolatey.Server
 
-```
+```powershell
 choco push ./launchy.2.5.0.20140301.nupkg `
   --source="'http://localhost/chocolatey'" `
   --api-key chocolateyrocks
@@ -428,7 +428,7 @@ choco push ./launchy.2.5.0.20140301.nupkg `
 
 +++
 
-```
+```powershell
 choco list --source="'http://localhost/chocolatey'"
 ```
 
@@ -549,7 +549,7 @@ choco list --source="'http://localhost/chocolatey'"
 - Take a look at the code in `C:\Scripts\Update-ProdRepoFromTest.ps1`
 - Jenkins PowerShell code:
 
-```
+```powershell
 node {
     powershell '''
         Set-Location (Join-Path -Path $env:SystemDrive -ChildPath 'scripts')
@@ -570,7 +570,7 @@ node {
 - Take a look at `C:\Scripts\Get-UpdatedPackage.ps1`
 - Jenkins PowerShell code:
 
-```
+```powershell
 node {
     powershell '''
         Set-Location (Join-Path -Path $env:SystemDrive -ChildPath 'scripts')
@@ -590,7 +590,7 @@ node {
 - Starts the first Jenkins job to update the production repository from test
 - Jenkins PowerShell code:
 
-```
+```powershell
 node {
     powershell '''
         $temp = Join-Path -Path $env:TEMP -ChildPath ([GUID]::NewGuid()).Guid
