@@ -446,11 +446,6 @@ Test login credentials to make sure you have access.
 ![Result of choco download](assets/images/choco-download-launchy-7.png)
 ![Result of choco download](assets/images/choco-download-launchy-8.png)
 
----
-
-@title[Why use Chocolatey.Server?]
-## Why use Chocolatey.Server?
-
 +++
 
 ## Push Package to Chocolatey.Server
@@ -488,7 +483,7 @@ This will error out.  We need to know the Api Key to push packages to this feed
 
 +++
 
-## Push Package to Chocolatey.Server
+## Push Package to Chocolatey.Server - Take 2
 
 @snap[center exercise-box]
 
