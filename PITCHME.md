@@ -87,12 +87,16 @@ Senior Technical Engineer @ Chocolatey Software
 @css[choco-blue](Agenda)
 @snapend
 
-* 18:30: Workshop Starts
-* 19:30: Comfort Break
-* 20:30: Comfort Break
-* 21:30: Workshop Ends
-
+@snap[west]
+@ul[](false)
+- 18:30: Workshop Starts
+- 19:30: Comfort Break
+- 20:30: Comfort Break
+- 21:30: Workshop Ends
+@ulend
+<br/><br/>
 Please feel free to interrupt for any questions that you might have.
+@snapend
 
 ---
 @title[Agenda]
@@ -102,12 +106,15 @@ Please feel free to interrupt for any questions that you might have.
 Agenda
 @snapend
 
-* Get access to Workshop Environments
-* Chocolatey Fundamentals
-* Manual Internalization
-* Package Internalizer Fundamentals
-* Automatic Package Internalization
-
+@snap[west]
+@ul[](false)
+- Get access to Workshop Environments
+- Chocolatey Fundamentals
+- Manual Internalization
+- Package Internalizer Fundamentals
+- Automatic Package Internalization
+@ulend
+@snapend
 ---
 
 @title[Pre-Requisites]
@@ -117,13 +124,16 @@ Agenda
 @css[choco-blue](Pre-Requisites)
 @snapend
 
-* Computer with network connection and RDP client
-  * on Windows, you are probably all set
-  * on macOS, get Microsoft Remote Desktop from the App Store
-  * on Linux, get [rdesktop](https://wiki.ubuntuusers.de/rdesktop/)
-* Some Chocolatey knowledge
-  * but it's OK if you are not a Chocolatey expert!)
-
+@snap[west]
+@ul[](false)
+- Computer with network connection and RDP client
+  - on Windows, you are probably all set
+  - on macOS, get Microsoft Remote Desktop from the App Store
+  - on Linux, get [rdesktop](https://wiki.ubuntuusers.de/rdesktop/)
+- Some Chocolatey knowledge
+  - but it's OK if you are not a Chocolatey expert!)
+@ulend
+@snapend
 ---
 
 @title[Hands-on Sections]
