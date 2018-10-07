@@ -133,11 +133,24 @@ Agenda
 @css[choco-blue](Hands-on Sections)
 @snapend
 
-* This whole workshop is hands-on
-* We will use Chocolatey version 0.10.11 Trial Edition
-* We will use Chocolatey.Server 0.2.5
-* We will use Jenkins 2.138.1
-* All hands-on section are clearly identified, like the rectangle below:
+@snap[north span-100]
+<br><br>
+@ul[](false)
+- Uses Chocolatey 0.10.11, Chocolatey.Server 0.2.5, and Jenkins 2.138.1
+- All hands-on section are clearly identified, like the rectangle below:
+@ulend
+@snapend
+
+@snap[south exercise-box]
+
+@fa[keyboard-o]()&nbsp;Exercise
+<br>
+@ul[](false)
+- This is the stuff you are supposed to do!
+- Go to https://gitpitch.com/gep13/chocolatey-internalizer-workshop/master to view these slides.
+@ulend
+
+@snapend
 
 ---
 
