@@ -649,7 +649,7 @@ This will error out.  We need to know the Api Key to push packages to this feed
 - Add automation jobs
 - PowerShell code does the heavy lifting
 - Jobs:
-    - Update Test Repository Package Versions
+  - Update Test Repository Package Versions
 
 +++
 
@@ -667,17 +667,32 @@ This will error out.  We need to know the Api Key to push packages to this feed
 - Name the job `Update Test Repository Package Versions`
 - Click **Pipeline**
 - Tick options: **This project is parameterized** and **Do not allow concurrent builds**;
-- Add **string** parameter `P_LOCAL_REPO_URL` with value `http://localhost/chocolatey`
-- Add **string** parameter `P_REMOTE_REPO_URL` with value `https://chocolatey.org/api/v2/`
-- Add **password** parameter `P_LOCAL_REPO_API_KEY` with value `chocolateyrocks`
 
 @ulend
 @snapend
 
 +++
 
-## Create Jenkins Jobs
-### Update Test Repository Package Versions
+@snap[center exercise-box]
+
+@fa[keyboard-o]()&nbsp;Exercise - continued
+<br>
+
+@ul[](false)
+- Add **string** parameter `P_LOCAL_REPO_URL` with value `http://localhost/chocolatey`
+- Add **string** parameter `P_REMOTE_REPO_URL` with value `https://chocolatey.org/api/v2/`
+- Add **password** parameter `P_LOCAL_REPO_API_KEY` with value `chocolateyrocks`
+@ulend
+@snapend
+
++++
+
+@snap[center exercise-box]
+
+@fa[keyboard-o]()&nbsp;Exercise - continued
+<br>
+
+@ul[](false)
 
 - Take a look at `C:\Scripts\Get-UpdatedPackage.ps1`
 - Add pipeline script:
@@ -695,6 +710,8 @@ node {
 </span></code></pre>
 
 - Click ***Save***
+@ulend
+@snapend
 
 +++
 
@@ -712,18 +729,33 @@ node {
 - Name the job `Internalize Packages`
 - Click **Pipeline**
 - Tick options: **This project is parameterized** and **Do not allow concurrent builds**;
-- Add **string** parameter `P_PKG_LIST` with blank value
-- Add **string** parameter `P_DST_URL` with value `http://localhost/chocolatey`
-- Add **password** parameter `P_LOCAL_REPO_API_KEY` with value `chocolateyrocks`
 
 @ulend
 @snapend
 
 +++
 
-## Create Jenkins Jobs
-### Internalize Packages
+@snap[center exercise-box]
 
+@fa[keyboard-o]()&nbsp;Exercise - continued
+<br>
+
+@ul[](false)
+
+- Add **string** parameter `P_PKG_LIST` with blank value
+- Add **string** parameter `P_DST_URL` with value `http://localhost/chocolatey`
+- Add **password** parameter `P_LOCAL_REPO_API_KEY` with value `chocolateyrocks`
+@ulend
+@snapend
+
++++
+
+@snap[center exercise-box]
+
+@fa[keyboard-o]()&nbsp;Exercise - continued
+<br>
+
+@ul[](false)
 - Add pipeline script:
 
 <pre><code class="lang-powershell hljs"><span class="line">
@@ -748,7 +780,9 @@ node {
 }
 </span></code></pre>
 
-- Click ***Save***
+- Click Save
+@ulend
+@snapend
 
 +++
 
@@ -766,11 +800,24 @@ node {
 - Name the job `Sync Production Repository From Test`
 - Click **Pipeline**
 - Tick options: **This project is parameterized** and **Do not allow concurrent builds**;
+
+- Continue on next slide ...
+
+@ulend
+@snapend
+
++++
+
+@snap[center exercise-box]
+
+@fa[keyboard-o]()&nbsp;Exercise - continued
+<br>
+
+@ul[](false)
+
 - Add **string** parameter `P_PROD_REPO_URL` with value `http://localhost:81/chocolatey`
 - Add **password** parameter `P_PROD_REPO_API_KEY` with value `chocolateyrocks`
 - Add **string** parameter `P_TEST_REPO_URL` with value `http://localhost/chocolatey`
-- Continue on next slide ...
-
 @ulend
 @snapend
 
