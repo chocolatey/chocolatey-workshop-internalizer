@@ -1023,8 +1023,25 @@ node {
 <pre><code class="lang-powershell hljs"><span class="line">choco push 7zip.install.18.1.nupkg &#x60;
   --source="'http://localhost/chocolatey'" &#x60;
   --api-key chocolateyrocks</span></code></pre>
-- Check test repository has the outdated package
 
+
+@ulend
+@snapend
+
++++
+
+@snap[center exercise-box]
+
+@fa[keyboard-o]()&nbsp;Exercise - continued
+<br>
+
+@ul[](false)
+
+- Run
+<pre><code class="lang-powershell hljs"><span class="line">choco push chocolatey-core.extension.1.3.3.nupkg &#x60;
+  --source="'http://localhost/chocolatey'" &#x60;
+  --api-key chocolateyrocks</span></code></pre>
+- Check test repository has the outdated package
 @ulend
 @snapend
 
