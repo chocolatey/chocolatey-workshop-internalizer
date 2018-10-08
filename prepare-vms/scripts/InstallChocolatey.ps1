@@ -16,8 +16,7 @@ choco feature enable --name="'autouninstaller'"
 choco feature enable --name="'allowGlobalConfirmation'"
 # - not recommended for production systems:
 choco feature enable --name="'logEnvironmentValues'"
-# - not recommended for production systems
-choco feature disable --name="'warnOnUpcomingLicenseExpiration'"
+
 
 # Set Configuration
 choco config set cacheLocation $env:ALLUSERSPROFILE\choco-cache

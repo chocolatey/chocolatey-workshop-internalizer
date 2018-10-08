@@ -636,7 +636,7 @@ This will error out.  We need to know the Api Key to push packages to this feed
 - Open initialAdminPassword file in text editor
 - Find password in secret file
 - Open Jenkins in browser http://localhost:8080
-- Paste admin password
+- Paste admin password and click continue
 @ulend
 @snapend
 
@@ -648,6 +648,8 @@ This will error out.  We need to know the Api Key to push packages to this feed
 <br>
 
 @ul[](false)
+- At the `Customize Jenkins` screen click `Select plugins to install`
+- Click Install
 - At `Create First Admin User` screen click `Continue as admin`
 - Click Save and Finish
 - Click Start using Jenkins
