@@ -1012,17 +1012,34 @@ node {
 @ul[](false)
 
 - Run
-<pre><code class="lang-powershell hljs"><span class="line">choco download 7zip.install --version 18.1 --no-progress --internalize --force --internalize-all-urls --append-use-original-location --source='https://chocolatey.org/api/v2/'</span></code></pre>
+<pre><code class="lang-powershell hljs"><span class="line">choco download 7zip.install &#x60;
+  --version 18.1 --no-progress --internalize &#x60;
+  --force --internalize-all-urls &#x60;
+  --append-use-original-location &#x60;
+  --source='https://chocolatey.org/api/v2/'</span></code></pre>
 - Run
-<pre><code class="lang-powershell hljs"><span class="line">choco push 7zip.install.18.1.nupkg -s http://localhost/chocolatey</span></code></pre>
+<pre><code class="lang-powershell hljs"><span class="line">choco push 7zip.install.18.1.nupkg &#x60;
+  --source="'http://localhost/chocolatey'" &#x60;
+  --api-key chocolateyrocks</span></code></pre>
 - Check test repository has the outdated package
+
+@ulend
+@snapend
+
++++
+
+@snap[center exercise-box]
+
+@fa[keyboard-o]()&nbsp;Exercise
+<br>
+
+@ul[](false)
 - Run
 <pre><code class="lang-powershell hljs"><span class="line">choco list -s http://localhost/chocolatey</span></code></pre>
 - Go to Jenkins and run the job **Sync Production Repository From Test** with default parameters
 - Run
 <pre><code class="lang-powershell hljs"><span class="line">choco list -s http://localhost:81/chocolatey</span></code></pre>
 - and make sure version `18.1` of `7zip.install` is shown
-
 @ulend
 @snapend
 
@@ -1061,7 +1078,7 @@ node {
 - Check the new version is in the test repository
 - Run
 <pre><code class="lang-powershell hljs"><span class="line">choco list -s http://localhost/chocolatey</span></code></pre>
-- Check the new version has been pushed to the test repository
+- Check the new version has been pushed to the production repository
 - Run
 <pre><code class="lang-powershell hljs"><span class="line">choco list -s http://localhost:81/chocolatey</span></code></pre>
 @ulend
