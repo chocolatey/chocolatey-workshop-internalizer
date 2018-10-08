@@ -680,9 +680,6 @@ This will error out.  We need to know the Api Key to push packages to this feed
 - Click **Pipeline** and then click **OK**
 - Tick options: **This project is parameterized** and **Do not allow concurrent builds**;
 - Click **Add parameter**
-- Add **string** parameter `P_LOCAL_REPO_URL` with value `http://localhost/chocolatey`
-- Add **string** parameter `P_REMOTE_REPO_URL` with value `https://chocolatey.org/api/v2/`
-- Add **password** parameter `P_LOCAL_REPO_API_KEY` with value `chocolateyrocks`
 @ulend
 @snapend
 
@@ -695,7 +692,22 @@ This will error out.  We need to know the Api Key to push packages to this feed
 
 @ul[](false)
 
+- Add **string** parameter `P_LOCAL_REPO_URL` with value `http://localhost/chocolatey`
+- Add **string** parameter `P_REMOTE_REPO_URL` with value `https://chocolatey.org/api/v2/`
+- Add **password** parameter `P_LOCAL_REPO_API_KEY` with value `chocolateyrocks`
 - Take a look at `C:\Scripts\Get-UpdatedPackage.ps1`
+
+@ulend
+@snapend
+
++++
+
+@snap[center exercise-box]
+
+@fa[keyboard-o]()&nbsp;Exercise - continued
+<br>
+
+@ul[](false)
 - Add pipeline script:
 
 <pre><code class="lang-powershell hljs"><span class="line">
@@ -713,7 +725,6 @@ node {
 - Click ***Save***
 @ulend
 @snapend
-
 +++
 
 ## Create Jenkins Jobs
@@ -767,14 +778,18 @@ node {
         $temp = Join-Path -Path $env:TEMP -ChildPath ([GUID]::NewGuid()).Guid
         $null = New-Item -Path $temp -ItemType Directory
         Write-Output "Created temporary directory '$temp'."
-        ($env:P_PKG_LIST).split(';') | ForEach-Object {
-            choco download $_ --no-progress --internalize --force --internalize-all-urls --append-use-original-location --output-directory=$temp --source='https://chocolatey.org/api/v2/'
+        $pkgs = ($env:P_PKG_LIST).split(';')
+        ForEach ($pkg in $pkgs) {
+            choco download $pkg &#x60;
+                --no-progress --internalize --force &#x60;
+                --internalize-all-urls --append-use-original-location &#x60;
+                --output-directory=$temp --source='https://chocolatey.org/api/v2/'
             if ($LASTEXITCODE -eq 0) {
-                $package = (Get-Item -Path (Join-Path -Path $temp -ChildPath "$_*.nupkg")).fullname
+                $package = (Get-Item -Path (Join-Path -Path $temp -ChildPath "$pkg*.nupkg")).fullname
                 choco push $package --source "$($env:P_DST_URL)" --api-key "$($env:P_API_KEY)" --force
             }
             else {
-                Write-Output "Failed to download package '$_'"
+                Write-Output "Failed to download package '$pkg'"
             }
         }
         Remove-Item -Path $temp -Force -Recurse
@@ -802,8 +817,7 @@ node {
 - Name the job `Sync Production Repository From Test`
 - Click **Pipeline**
 - Click **OK**
-- Tick options: **This project is parameterized**, **Do not allow concurrent builds**, **Build after other projects are built**
-- At **Projects to watch** Add `Internalize Packages, Update Test Repository Package Versions`
+- Tick options: **This project is parameterized**, and **Do not allow concurrent builds**
 
 @ulend
 @snapend
@@ -829,7 +843,7 @@ node {
 
 @snap[center exercise-box]
 
-@fa[keyboard-o]()&nbsp;Exercise
+@fa[keyboard-o]()&nbsp;Exercise - continued
 <br>
 
 @ul[](false)
@@ -887,24 +901,25 @@ node {
 
 +++
 
-## Finance Need AdobeReader Installed
-
 @snap[center exercise-box]
 
-- Package has been internalized
-- Find it in the repositories
-
-@fa[keyboard-o]()&nbsp;Exercise
+@fa[keyboard-o]()&nbsp;Exercise - continued
 <br>
 
 @ul[](false)
-
+- Package has been internalized
+- Find it in the repositories
 - Check the test repository
-- PowerShell Command: `choco list -s http://localhost/chocolatey`
-- Check the production repository
-- PowerShell Command: `choco list -s http://localhost:81/chocolatey`
-
 @ulend
+
+<pre><code class="lang-powershell hljs"><span class="line">choco list -s http://localhost/chocolatey</span></code></pre>
+
+@ul[](false)
+- Check the production repository
+@ulend
+
+<pre><code class="lang-powershell hljs"><span class="line">choco list -s http://localhost:81/chocolatey</span></code></pre>
+
 @snapend
 
 ---
@@ -930,10 +945,22 @@ node {
 - Create a temp directory and change to it
 - run `choco new newapp`
 - In the `newapp` folder created, delete all files except `newapp.nuspec` and `tools\chocoInstall.ps1`
+
+
+@ulend
+@snapend
+
++++
+
+@snap[center exercise-box]
+
+@fa[keyboard-o]()&nbsp;Exercise - continued
+<br>
+
+@ul[](false)
 - Replace the contents of `tools\chocoInstall.ps1` with `Write-Host "New app is installed!"`
 - In `newapp.nuspec` change the version field number to `1.2.3`
 - Run `choco pack` to create a new `.nupkg` file
-
 @ulend
 @snapend
 
