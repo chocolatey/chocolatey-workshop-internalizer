@@ -29,3 +29,5 @@ if($licenseDownloadUrl -And $licenseNupkgDownloadUrl -And $azureSas) {
 }
 
 choco upgrade chocolatey.extension -y --source="'c:\packages'"
+
+choco feature disable --name="'warnOnUpcomingLicenseExpiration'"
