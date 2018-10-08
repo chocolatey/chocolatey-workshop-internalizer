@@ -663,19 +663,9 @@ This will error out.  We need to know the Api Key to push packages to this feed
 - Click **New Item**
 - Name the job `Update Test Repository Package Versions`
 - Click **Pipeline**
+- CLick **OK**
 - Tick options: **This project is parameterized** and **Do not allow concurrent builds**;
-
-@ulend
-@snapend
-
-+++
-
-@snap[center exercise-box]
-
-@fa[keyboard-o]()&nbsp;Exercise - continued
-<br>
-
-@ul[](false)
+- Click **Add parameter**
 - Add **string** parameter `P_LOCAL_REPO_URL` with value `http://localhost/chocolatey`
 - Add **string** parameter `P_REMOTE_REPO_URL` with value `https://chocolatey.org/api/v2/`
 - Add **password** parameter `P_LOCAL_REPO_API_KEY` with value `chocolateyrocks`
@@ -725,6 +715,7 @@ node {
 - Click **New Item**
 - Name the job `Internalize Packages`
 - Click **Pipeline**
+- Click **OK**
 - Tick options: **This project is parameterized** and **Do not allow concurrent builds**;
 
 @ulend
@@ -741,7 +732,8 @@ node {
 
 - Add **string** parameter `P_PKG_LIST` with blank value
 - Add **string** parameter `P_DST_URL` with value `http://localhost/chocolatey`
-- Add **password** parameter `P_LOCAL_REPO_API_KEY` with value `chocolateyrocks`
+- Add **password** parameter `P_API_KEY` with value `chocolateyrocks`
+
 @ulend
 @snapend
 
@@ -795,7 +787,13 @@ node {
 - Click **New Item**
 - Name the job `Sync Production Repository From Test`
 - Click **Pipeline**
+- Click **OK**
 - Tick options: **This project is parameterized** and **Do not allow concurrent builds**;
+- Add **string** parameter `P_PROD_REPO_URL` with value `http://localhost:81/chocolatey`
+- Add **password** parameter `P_PROD_REPO_API_KEY` with value `chocolateyrocks`
+- Add **string** parameter `P_TEST_REPO_URL` with value `http://localhost/chocolatey`
+- Tick **Build after other projects are built**
+- At **Projects to watch** Add `Internalize Packages, Update Test Repository Package Versions`
 
 @ulend
 @snapend
@@ -850,8 +848,56 @@ node {
 
 ## Real World Scenarios
 
+---
+@title[Finance Need AdobeReader Installed]
+
+## Finance Need AdobeReader Installed
+
+- Package needs created
+- Needs tested on golden images
+- Needs deployed to estate
+
++++
+## Finance Need AdobeReader Installed
+
+@snap[center exercise-box]
+
+@fa[keyboard-o]()&nbsp;Exercise
+<br>
+
+@ul[](false)
+
+- Click **Internalize Packages**
+- Click **Build with parameters**
+- At **P_PKG_LIST** enter `adobereader`
+- Click **Build**
+
+@ulend
+@snapend
+
 +++
 
+## Finance Need AdobeReader Installed
+
+@snap[center exercise-box]
+
+- Package has been internalized
+- Find it in the repositories
+
+@fa[keyboard-o]()&nbsp;Exercise
+<br>
+
+@ul[](false)
+
+- Check the test repository
+- PowerShell Command: `choco list -s http://localhost/chocolatey`
+- Check the production repository
+- PowerShell Command: `choco list -s http://localhost:81/chocolatey`
+
+@ulend
+@snapend
+
+---
 @title[Dev Team Finished The App!]
 
 ## Dev Team Finally Finish The App
@@ -862,18 +908,102 @@ node {
 
 +++
 
-@title[Finance Need AdobeReader Installed]
+## Lets Create The App Package
 
-## Finance Need AdobeReader Installed
+@snap[center exercise-box]
 
-- Package needs created
-- Needs tested on golden images
-- Needs deployed to estate
+@fa[keyboard-o]()&nbsp;Exercise
+<br>
+
+@ul[](false)
+
+- Create a temp directory and change to it
+- run `choco new newapp`
+- In the `newapp` folder created, delete all files except `newapp.nuspec` and `tools\chocoInstall.ps1`
+- Replace the contents of `tools\chocoInstall.ps1` with `Write-Host "New app is installed!"`
+- In `newapp.nuspec` change the version field number to `1.2.3`
+- Run `choco pack` to create a new `.nupkg` file
+
+@ulend
+@snapend
 
 +++
 
-@title[Your Scenarios?]
+## Lets Push The App Package
 
+@snap[center exercise-box]
+
+@fa[keyboard-o]()&nbsp;Exercise
+<br>
+
+@ul[](false)
+
+- Run `choco push newapp.1.2.3.nupkg -s http://localhost/chocolatey`
+- Run `choco list -s http://loclhost/chocolatey` and make sure the `newapp` package is shown
+- Go to Jenkins and run the job **Sync Production Repository From Test** with default parameters
+- Run `choco list -s http://localhost:81/chocolatey` and make sure the `newapp` package is shown
+
+@ulend
+@snapend
+
+---
+@title[7Zip has a security vulnerability!]
+
+## 7Zip has a security vulnerability!
+
+- A CVE has been released for 7Zip
+- Need to test and release this asap!
+- Needs deployed to estate
+
++++
+@title[7Zip has a security vulnerability!]
+
+## Push Old Version Of 7Zip
+
+@snap[center exercise-box]
+
+@fa[keyboard-o]()&nbsp;Exercise
+<br>
+
+@ul[](false)
+
+- Run: `choco download 7zip.install --version 18.1 --no-progress --internalize --force --internalize-all-urls --append-use-original-location --source='https://chocolatey.org/api/v2/'`
+- Run: `choco push 7zip.install.18.1.nupkg -s http://localhost/chocolatey`
+- Check test repository has the outdated package
+- Run: `choco list -s http://localhost/chocolatey`
+- Go to Jenkins and run the job **Sync Production Repository From Test** with default parameters
+- Run `choco list -s http://localhost:81/chocolatey` and make sure version `18.1` of `7zip.install` is shown
+
+@ulend
+@snapend
+
++++
+
+@title[7Zip has a security vulnerability!]
+
+## Update Test Packages From Community Repository
+
+@snap[center exercise-box]
+
+@fa[keyboard-o]()&nbsp;Exercise
+<br>
+
+@ul[](false)
+
+- Check the newest version is available in the community repository
+- Run: `choco list 7zip.install`
+- This new version does not have the vulnerability!
+- Update your repositories
+- Go to Jenkins and run the job **Update Test Repository Package Versions**
+- Check the new version is in the test repository
+- Run: `choco list -s http://localhost/chocolatey`
+- Check the new version has been pushed to the test repository
+- Run `choco list -s http://localhost:81/chocolatey`
+
+@ulend
+@snapend
+
+---
 ## What Are Your Real World Scenarios?
 
 ---
