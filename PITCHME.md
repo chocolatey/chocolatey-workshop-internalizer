@@ -451,7 +451,7 @@ Test login credentials to make sure you have access.
 @fa[keyboard-o]()&nbsp;Exercise
 <br>
 
-<pre><code class="lang-powershell hljs"><span class="line">choco source list</span><span class="line">choco list --source="'http://localhost/chocolatey'"</span><span class="line">choco push ./launchy.2.5.0.20140301.nupkg `
+<pre><code class="lang-powershell hljs"><span class="line">choco source list</span><span class="line">choco list --source="'http://localhost/chocolatey'"</span><span class="line">choco push ./launchy.2.5.0.20140301.nupkg &#x60;
   --source="'http://localhost/chocolatey'"
 </span></code></pre>
 
@@ -486,8 +486,8 @@ This will error out.  We need to know the Api Key to push packages to this feed
 @fa[keyboard-o]()&nbsp;Exercise
 <br>
 
-<pre><code class="lang-powershell hljs"><span class="line">choco push ./launchy.2.5.0.20140301.nupkg `
-  --source="'http://localhost/chocolatey'" `
+<pre><code class="lang-powershell hljs"><span class="line">choco push ./launchy.2.5.0.20140301.nupkg &#x60;
+  --source="'http://localhost/chocolatey'" &#x60;
   --api-key chocolateyrocks
 </span></code></pre>
 
@@ -623,7 +623,7 @@ This will error out.  We need to know the Api Key to push packages to this feed
 
 +++
 
-## Log into Jenkins
+## Initial Jenkins Setup
 
 @snap[center exercise-box]
 
@@ -632,10 +632,25 @@ This will error out.  We need to know the Api Key to push packages to this feed
 
 @ul[](false)
 - Open Windows Explorer
-- Navigate to c:/Program Files (x86)/Jenkins/secrets
+- Navigate to `c:\Program Files (x86)\Jenkins\secrets`
 - Open initialAdminPassword file in text editor
 - Find password in secret file
-- Login into Jenkins with username admin and this password
+- Open Jenkins in browser http://localhost:8080
+- Paste admin password
+@ulend
+@snapend
+
++++
+
+@snap[center exercise-box]
+
+@fa[keyboard-o]()&nbsp;Exercise
+<br>
+
+@ul[](false)
+- At `Create First Admin User` screen click `Continue as admin`
+- Click Save and Finish
+- Click Start using Jenkins
 @ulend
 @snapend
 
@@ -662,8 +677,7 @@ This will error out.  We need to know the Api Key to push packages to this feed
 
 - Click **New Item**
 - Name the job `Update Test Repository Package Versions`
-- Click **Pipeline**
-- CLick **OK**
+- Click **Pipeline** and then click **OK**
 - Tick options: **This project is parameterized** and **Do not allow concurrent builds**;
 - Click **Add parameter**
 - Add **string** parameter `P_LOCAL_REPO_URL` with value `http://localhost/chocolatey`
@@ -688,9 +702,9 @@ This will error out.  We need to know the Api Key to push packages to this feed
 node {
     powershell '''
         Set-Location (Join-Path -Path $env:SystemDrive -ChildPath 'scripts')
-        .\\Get-UpdatedPackage.ps1 -LocalRepo $env:P_LOCAL_REPO_URL `
-            -LocalRepoApiKey $env:P_LOCAL_REPO_API_KEY `
-            -RemoteRepo $env:P_REMOTE_REPO_URL `
+        .\\\\Get-UpdatedPackage.ps1 -LocalRepo $env:P_LOCAL_REPO_URL &#x60;
+            -LocalRepoApiKey $env:P_LOCAL_REPO_API_KEY &#x60;
+            -RemoteRepo $env:P_REMOTE_REPO_URL &#x60;
             -Verbose
     '''
 }
@@ -830,10 +844,10 @@ node {
 node {
     powershell '''
         Set-Location (Join-Path -Path $env:SystemDrive -ChildPath 'scripts')
-        .\\Update-ProdRepoFromTest.ps1 `
-            -ProdRepo $env:P_PROD_REPO_URL `
-            -ProdRepoApiKey $env:P_PROD_REPO_API_KEY `
-            -TestRepo $env:P_TEST_REPO_URL `
+        .\\\\Update-ProdRepoFromTest.ps1 &#x60;
+            -ProdRepo $env:P_PROD_REPO_URL &#x60;
+            -ProdRepoApiKey $env:P_PROD_REPO_API_KEY &#x60;
+            -TestRepo $env:P_TEST_REPO_URL &#x60;
             -Verbose
     '''
 }
