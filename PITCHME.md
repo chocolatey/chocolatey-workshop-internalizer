@@ -891,7 +891,8 @@ node {
 
 @ul[](false)
 
-- Click **Internalize Packages**
+- Open Jenkins
+- Click **Internalize Packages** Job
 - Click **Build with parameters**
 - At **P_PKG_LIST** enter `adobereader`
 - Click **Build**
@@ -943,7 +944,7 @@ node {
 @ul[](false)
 
 - Create a temp directory and change to it
-- run `choco new newapp`
+<pre><code class="lang-powershell hljs"><span class="line">`choco new newapp`</span></code></pre>
 - In the `newapp` folder created, delete all files except `newapp.nuspec` and `tools\chocoInstall.ps1`
 
 
@@ -960,7 +961,8 @@ node {
 @ul[](false)
 - Replace the contents of `tools\chocoInstall.ps1` with `Write-Host "New app is installed!"`
 - In `newapp.nuspec` change the version field number to `1.2.3`
-- Run `choco pack` to create a new `.nupkg` file
+- In a terminal, navigate to the folder where the nuspec was created and run:
+<pre><code class="lang-powershell hljs"><span class="line">`choco pack`<span></code></pre>
 @ulend
 @snapend
 
@@ -975,10 +977,15 @@ node {
 
 @ul[](false)
 
-- Run `choco push newapp.1.2.3.nupkg -s http://localhost/chocolatey`
-- Run `choco list -s http://loclhost/chocolatey` and make sure the `newapp` package is shown
+- Run
+<pre><code class="lang-powershell hljs"><span class="line">choco push newapp.1.2.3.nupkg -s http://localhost/chocolatey --api-key chocolateyrocks<span></code></pre>
+- Run
+<pre><code class="lang-powershell hljs"><span class="line">choco list -s http://localhost/chocolatey</span></code></pre>
+- and make sure the `newapp` package is shown
 - Go to Jenkins and run the job **Sync Production Repository From Test** with default parameters
-- Run `choco list -s http://localhost:81/chocolatey` and make sure the `newapp` package is shown
+- Run
+<pre><code class="lang-powershell hljs"><span class="line">choco list -s http://localhost:81/chocolatey</span></code></pre>
+- and make sure the `newapp` package is shown
 
 @ulend
 @snapend
@@ -1004,12 +1011,17 @@ node {
 
 @ul[](false)
 
-- Run: `choco download 7zip.install --version 18.1 --no-progress --internalize --force --internalize-all-urls --append-use-original-location --source='https://chocolatey.org/api/v2/'`
-- Run: `choco push 7zip.install.18.1.nupkg -s http://localhost/chocolatey`
+- Run
+<pre><code class="lang-powershell hljs"><span class="line">choco download 7zip.install --version 18.1 --no-progress --internalize --force --internalize-all-urls --append-use-original-location --source='https://chocolatey.org/api/v2/'</span></code></pre>
+- Run
+<pre><code class="lang-powershell hljs"><span class="line">choco push 7zip.install.18.1.nupkg -s http://localhost/chocolatey</span></code></pre>
 - Check test repository has the outdated package
-- Run: `choco list -s http://localhost/chocolatey`
+- Run
+<pre><code class="lang-powershell hljs"><span class="line">choco list -s http://localhost/chocolatey</span></code></pre>
 - Go to Jenkins and run the job **Sync Production Repository From Test** with default parameters
-- Run `choco list -s http://localhost:81/chocolatey` and make sure version `18.1` of `7zip.install` is shown
+- Run
+<pre><code class="lang-powershell hljs"><span class="line">choco list -s http://localhost:81/chocolatey</span></code></pre>
+- and make sure version `18.1` of `7zip.install` is shown
 
 @ulend
 @snapend
@@ -1028,18 +1040,32 @@ node {
 @ul[](false)
 
 - Check the newest version is available in the community repository
-- Run: `choco list 7zip.install`
+- Run
+<pre><code class="lang-powershell hljs"><span class="line">choco list 7zip.install</span></code></pre>
 - This new version does not have the vulnerability!
 - Update your repositories
 - Go to Jenkins and run the job **Update Test Repository Package Versions**
-- Check the new version is in the test repository
-- Run: `choco list -s http://localhost/chocolatey`
-- Check the new version has been pushed to the test repository
-- Run `choco list -s http://localhost:81/chocolatey`
+
 
 @ulend
 @snapend
 
++++
+
+@snap[center exercise-box]
+
+@fa[keyboard-o]()&nbsp;Exercise - continued
+<br>
+
+@ul[](false)
+- Check the new version is in the test repository
+- Run
+<pre><code class="lang-powershell hljs"><span class="line">choco list -s http://localhost/chocolatey</span></code></pre>
+- Check the new version has been pushed to the test repository
+- Run
+<pre><code class="lang-powershell hljs"><span class="line">choco list -s http://localhost:81/chocolatey</span></code></pre>
+@ulend
+@snapen
 ---
 ## What Are Your Real World Scenarios?
 
