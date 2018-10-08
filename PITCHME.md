@@ -31,7 +31,7 @@ Senior Software Engineer @ Chocolatey Software
 @snapend
 
 @snap[east span-30]
-![](assets/images/gary-avatar.png)
+![Gary Ewan Park](assets/images/gary-avatar.png)
 <br>
 @css[bio-name](Gary Ewan Park)
 @snapend
@@ -59,7 +59,7 @@ Senior Technical Engineer @ Chocolatey Software
 @snapend
 
 @snap[east span-30]
-![](assets/images/paul.png)
+![Paul Broadwith](assets/images/paul.png)
 <br>
 @css[bio-name](Paul Broadwith)
 @snapend
