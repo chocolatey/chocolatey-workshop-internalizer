@@ -802,11 +802,7 @@ node {
 - Name the job `Sync Production Repository From Test`
 - Click **Pipeline**
 - Click **OK**
-- Tick options: **This project is parameterized** and **Do not allow concurrent builds**;
-- Add **string** parameter `P_PROD_REPO_URL` with value `http://localhost:81/chocolatey`
-- Add **password** parameter `P_PROD_REPO_API_KEY` with value `chocolateyrocks`
-- Add **string** parameter `P_TEST_REPO_URL` with value `http://localhost/chocolatey`
-- Tick **Build after other projects are built**
+- Tick options: **This project is parameterized**, **Do not allow concurrent builds**, **Build after other projects are built**
 - At **Projects to watch** Add `Internalize Packages, Update Test Repository Package Versions`
 
 @ulend
