@@ -4,13 +4,28 @@ This is the material for the workshop "Setting up Internal Chocolatey Deployment
 
 ## Content
 
-- TBD
+Software management and deployment is already a task, getting that good base of infrastructure in place right definitely helps. When you are using Chocolatey for software deployments, there are some recommendations on how to set up source control and testing infrastructure, not to mention how best to set up your production deployment infrastructure for success. Achieving reliability, repeatability, and scale is important in any organization - come let us show you how to easily achieve all of that.
+
+In this workshop you will get hands on experience with:
+
+- Git
+- Setting up your workstation for Chocolatey packaging (best tools to use)
+- Scripting that setup for others
+- Preparing Chocolatey for internal use
+- Setting up a package repository (Chocolatey.Server)
+- Setting up a CI system (Jenkins)
+- Testing software deployments
 
 ## Workshop slides
 
-- The slides for this presentation can be found here [![GitPitch](https://gitpitch.com/assets/badge.svg)](https://gitpitch.com/gep13/chocolatey-internalizer-workshop/master)
+- The most recent slides for this presentation can be found here [![GitPitch](https://gitpitch.com/assets/badge.svg)](https://gitpitch.com/gep13/chocolatey-internalizer-workshop/master)
 
 ## Past workshops
+
+- This presentation was given at [Chocolatey Fest 2018](https://chocolateyfest.com/) on 8th October 2018
+  - The slides can be found here [![GitPitch](https://gitpitch.com/assets/badge.svg)](https://gitpitch.com/gep13/chocolatey-internalizer-workshop/chocolateyfest2018)
+- This presentation was given at [WinOps 2018](https://www.winops.org/london-2018/) on 15th November 2018
+  - The slides can be found here - TBD
 
 ## Running the workshop
 
