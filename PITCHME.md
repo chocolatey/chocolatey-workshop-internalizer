@@ -5,14 +5,6 @@
 
 ![ChocolateyFest Logo](assets/images/cf-logo.png)
 
----?image=assets/images/cf2018-sponsors.png&size=contain&color=white
-@title[ChocolateyFest Sponsors]
-@transition[none]
-
----?image=assets/images/wifi.png&size=contain&color=white
-@title[Wifi]
-@transition[none]
-
 ---
 
 @title[Who Am I? - Gary Ewan Park]
