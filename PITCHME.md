@@ -278,6 +278,23 @@ Test login credentials to make sure you have access.
 
 +++
 
+## Checking for outdated packages
+
+@snap[center exercise-box]
+
+@fa[keyboard-o]()&nbsp;Exercise
+<br>
+
+<pre><code class="lang-powershell hljs"><span class="line">choco outdated</span></code></pre>
+
++++
+
+## Result
+
+![Output from choco outdated](assets/images/choco-outdated.png)
+
++++
+
 ## Upgrade all packages
 
 @snap[center exercise-box]
@@ -312,22 +329,6 @@ Test login credentials to make sure you have access.
 
 +++
 
-## Checking for outdated packages
-
-@snap[center exercise-box]
-
-@fa[keyboard-o]()&nbsp;Exercise
-<br>
-
-<pre><code class="lang-powershell hljs"><span class="line">choco outdated</span></code></pre>
-
-+++
-
-## Result
-
-![Output from choco outdated](assets/images/choco-outdated.png)
-
-+++
 
 ## Reduce size of files on disk
 
