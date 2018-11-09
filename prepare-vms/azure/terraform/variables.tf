@@ -9,7 +9,7 @@ variable "count" {
 }
 
 variable "group_name" {
-  default = "chocolateyfest-choco-workshop"
+  default = "winops-choco-workshop"
 }
 
 variable "account" {

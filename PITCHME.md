@@ -357,7 +357,7 @@ Test login credentials to make sure you have access.
 @fa[keyboard-o]()&nbsp;Exercise
 <br>
 
-<pre><code class="lang-powershell hljs"><span class="line">mkdir chocolateyfest</span><span class="line">cd chocolateyfest</span><span class="line">choco download putty.install</span><span class="line">ii .</span></code></pre>
+<pre><code class="lang-powershell hljs"><span class="line">mkdir winops</span><span class="line">cd winops</span><span class="line">choco download putty.install</span><span class="line">ii .</span></code></pre>
 
 +++
 
