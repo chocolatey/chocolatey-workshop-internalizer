@@ -3,7 +3,7 @@
 ## Setting Up Internal Chocolatey Deployments
 ### Using Jenkins and Package Internalizer
 
-![ChocolateyFest Logo](assets/images/cf-logo.png)
+![WinOps Logo](assets/images/winops_logo.png)
 
 ---
 
