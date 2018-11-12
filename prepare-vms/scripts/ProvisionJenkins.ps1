@@ -22,6 +22,7 @@ Write-Host "Downloading Jenkins Scripts..."
 (New-Object Net.WebClient).DownloadFile('https://github.com/gep13/chocolatey-internalizer-workshop/raw/master/prepare-vms/scripts/ConvertTo-ChocoObject.ps1', 'C:\scripts\ConvertTo-ChocoObject.ps1')
 (New-Object Net.WebClient).DownloadFile('https://github.com/gep13/chocolatey-internalizer-workshop/raw/master/prepare-vms/scripts/Update-ProdRepoFromTest.ps1', 'C:\scripts\Update-ProdRepoFromTest.ps1')
 (New-Object Net.WebClient).DownloadFile('https://github.com/gep13/chocolatey-internalizer-workshop/raw/master/prepare-vms/scripts/Get-UpdatedPackage.ps1', 'C:\scripts\Get-UpdatedPackage.ps1')
+(New-Object Net.WebClient).DownloadFile('https://github.com/gep13/chocolatey-internalizer-workshop/raw/master/prepare-vms/scripts/Test-Package.ps1', 'C:\scripts\Test-Package.ps1')
 
 Write-Host "Waiting up to 60 seconds for Jenkins to respond."
 # loop either 60 times or until we get a 403 status code response (403 means we
