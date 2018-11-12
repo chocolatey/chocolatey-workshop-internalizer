@@ -40,8 +40,10 @@ $pkgs | ForEach-Object {
     # INSERT CODE HERE TO TEST YOUR PACKAGE
     # #######################
 
+    $failed = (Invoke-Pester -Script @{ Path = '.\Test-Package.ps1'; Parameters = @{ Package = $_.name }} -Passthru).FailedCount
+
     # If package testing is successful ...
-    if ($LASTEXITCODE -eq 0) {
+    if (-not $failed) {
       Write-Verbose "Pushing downloaded package '$(Split-Path -Path $pkgPath -Leaf)' to production repository '$ProdRepo'."
       choco push $pkgPath --source=$ProdRepo --api-key=$ProdRepoApiKey --force
 
