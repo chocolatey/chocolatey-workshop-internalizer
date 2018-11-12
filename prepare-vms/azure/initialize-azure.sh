@@ -1,5 +1,5 @@
 #!/bin/bash
-resource_group=winops-chocolatey-internalizer-images
+resource_group=chocolatey-internalizer-images
 region="West US 2"
 aadClientName=chocolatey-internalizer-workshop-packer
 
