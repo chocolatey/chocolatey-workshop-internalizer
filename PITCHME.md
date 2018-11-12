@@ -138,7 +138,7 @@ Agenda
 @snap[north span-100]
 <br><br>
 @ul[](false)
-- Uses Chocolatey 0.10.11, Chocolatey.Server 0.2.5, and Jenkins 2.138.1
+- Uses Chocolatey 0.10.11, Chocolatey.Server 0.2.5, and Jenkins 2.138.3
 - All hands-on section are clearly identified, like the rectangle below:
 @ulend
 @snapend
