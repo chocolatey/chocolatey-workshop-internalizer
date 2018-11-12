@@ -1,6 +1,6 @@
 #!/bin/bash
 resource_group=chocolatey-internalizer-images
-region="West US 2"
+region="North Europe"
 aadClientName=chocolatey-internalizer-workshop-packer
 
 echo "Creating image resource group $resource_group"
