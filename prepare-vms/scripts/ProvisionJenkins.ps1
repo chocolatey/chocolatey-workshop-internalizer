@@ -1,23 +1,4 @@
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-Write-Host "Downloading Jenkins package..."
-
-$jenkinsDownloadUrl = $env:JENKINS_DOWNLOAD_URL;
-$azureSas = $env:AZURE_SAS;
-$downloadPath = "c:\packages"
-
-if(!(Test-Path $downloadPath)) {
-  New-Item -ItemType Directory -Path $downloadPath
-}
-
-if($jenkinsDownloadUrl -And $azureSas) {
-  $fullDownloadUrl = "$jenkinsDownloadUrl$azureSas"
-  (New-Object Net.WebClient).DownloadFile($fullDownloadUrl, "$downloadPath\jenkins.2.138.1.nupkg")
-  Write-Host "Download complete."
-} else {
-  Write-Host "Unable to download Jenkins nupkg"
-}
-
-choco upgrade jenkins -y --source="'c:\packages'"
+choco upgrade jenkins -y --no-progress
 
 Write-Host "Stopping Jenkins service."
 Stop-Service -Name jenkins

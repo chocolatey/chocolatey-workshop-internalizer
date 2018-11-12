@@ -41,8 +41,7 @@
       "environment_vars": [
         "AZURE_SAS={{user `azure_sas`}}",
         "LICENSE_DOWNLOAD_URL={{user `license_download_url`}}",
-        "LICENSE_NUPKG_DOWNLOAD_URL={{user `license_nupkg_download_url`}}",
-        "JENKINS_DOWNLOAD_URL={{user `jenkins_download_url`}}"
+        "LICENSE_NUPKG_DOWNLOAD_URL={{user `license_nupkg_download_url`}}"
       ],
       "type": "powershell"
     },
@@ -58,7 +57,6 @@
     "azure_sas": "{{env `AZURE_SAS`}}",
     "license_download_url": "{{env `LICENSE_DOWNLOAD_URL`}}",
     "license_nupkg_download_url": "{{env `LICENSE_NUPKG_DOWNLOAD_URL`}}",
-    "jenkins_download_url": "{{env `JENKINS_DOWNLOAD_URL`}}",
     "circle_build_num": "{{env `CIRCLE_BUILD_NUM`}}",
     "client_id": "{{env `ARM_CLIENT_ID`}}",
     "client_secret": "{{env `ARM_CLIENT_SECRET`}}",
