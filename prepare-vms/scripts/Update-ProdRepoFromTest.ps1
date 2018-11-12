@@ -40,7 +40,7 @@ $pkgs | ForEach-Object {
     # INSERT CODE HERE TO TEST YOUR PACKAGE
     # #######################
 
-    $failed = (Invoke-Pester -Script @{ Path = '.\Test-Package.ps1'; Parameters = @{ Package = $_.name }} -Passthru).FailedCount
+    $failed = (Invoke-Pester -Script @{ Path = '.\Test-Package.ps1'; Parameters = @{ Package = $_.name; Source = $TestRepo }} -Passthru).FailedCount
 
     # If package testing is successful ...
     if (-not $failed) {

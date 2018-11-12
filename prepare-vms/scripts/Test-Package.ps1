@@ -2,17 +2,18 @@
 [CmdletBinding()]
 Param (
     [string[]]
-    $Package
-)
+    $Package,
 
-$source = 'https://chocolatey.org/api/v2/'
+    [string]
+    $Source
+)
 
 Describe "Testing Chocolatey Packages" {
 
     foreach ($pkg in $Package) {
         Context "Testing package $pkg" {
             it 'should install without error' {
-                choco install $pkg -y -s $source
+                choco install $pkg -y -s $Source
                 $LASTEXITCODE | Should Be 0
             }
 
