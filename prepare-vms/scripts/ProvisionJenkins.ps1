@@ -1,3 +1,4 @@
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 choco upgrade jenkins -y --no-progress
 
 Write-Host "Stopping Jenkins service."
@@ -6,6 +7,12 @@ Stop-Service -Name jenkins
 if(!(Test-Path "c:\scripts")) {
   New-Item -ItemType Directory -Path "c:\scripts"
 }
+
+Write-Host "Extracting Jenkins configuration files..."
+ (New-Object Net.WebClient).DownloadFile('https://github.com/gep13/chocolatey-internalizer-workshop/raw/master/prepare-vms/scripts/jenkins-config.zip', 'C:\scripts\jenkins-config.zip')
+7z x c:\scripts\jenkins-config.zip -y -r -bd -o"c:\program files (x86)\jenkins"
+ Write-Host "Finished extracting config files."
+
 
 Write-Host "Starting Jenkins service."
 Start-Service -Name Jenkins
