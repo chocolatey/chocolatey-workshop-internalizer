@@ -741,9 +741,11 @@ This will error out.  We need to know the Api Key to push packages to this feed
 <br>
 
 @ul[](false)
-
 - Run
-<pre><code class="lang-powershell hljs"><span class="line">choco push newapp.1.2.3.nupkg -s http://localhost/chocolatey --api-key chocolateyrocks<span></code></pre>
+<pre><code class="lang-powershell hljs"><span class="line">choco push &#x60;
+  newapp.1.2.3.nupkg &#x60;
+  -s http://localhost/chocolatey &#x60;
+  --api-key chocolateyrocks<span></code></pre>
 - Run
 <pre><code class="lang-powershell hljs"><span class="line">choco list -s http://localhost/chocolatey</span></code></pre>
 - and make sure the `newapp` package is shown
@@ -775,18 +777,16 @@ This will error out.  We need to know the Api Key to push packages to this feed
 <br>
 
 @ul[](false)
-
 - Run
-<pre><code class="lang-powershell hljs"><span class="line">choco download 7zip.install &#x60;
-  --version 18.1 --no-progress --internalize &#x60;
-  --force --internalize-all-urls &#x60;
+<pre><code class="lang-powershell hljs"><span class="line">choco download 7zip.install --version 18.1 --internalize --force &#x60;
+  --internalize-all-urls &#x60;
   --append-use-original-location &#x60;
+  --no-progress &#x60;
   --source='https://chocolatey.org/api/v2/'</span></code></pre>
 - Run
 <pre><code class="lang-powershell hljs"><span class="line">choco push 7zip.install.18.1.nupkg &#x60;
   --source="'http://localhost/chocolatey'" &#x60;
   --api-key chocolateyrocks</span></code></pre>
-
 
 @ulend
 @snapend
