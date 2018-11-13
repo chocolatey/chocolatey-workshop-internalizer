@@ -413,14 +413,29 @@ Test login credentials to make sure you have access.
 
 +++
 
+## Answer 1
+
+Either simply append `-UseOriginalLocation` flag to the contents of the `chocolateyInstall.ps1` file
+
+![Append UseOriginalLocation](assets/images/choco-download-launchy-4.png)
+
++++
+
+## Answer 2
+
+Update to latest best practices for a Chocolatey Package
+
+![Update to latest best practices](assets/images/choco-download-launchy-5.png)
+
++++
+
 ## The easy way...
 
 @snap[center exercise-box]
 
 @fa[keyboard-o]()&nbsp;Exercise
 <br>
-
-<pre><code class="lang-powershell hljs"><span class="line">choco download launchy &#x60;</span><span class="line">  --internalize &#x60;</span><span class="line">  --internalize-all-urls &#x60;</span><span class="line">  --append-use-original-location</span>
+<pre><code class="lang-powershell hljs"><span class="line">mkdir c:/Users/training/winops/take2</span><span class="line">cd c:/Users/training/winops/take2</span><span class="line"> </span><span class="line">choco download launchy &#x60;</span><span class="line">  --internalize &#x60;</span><span class="line">  --internalize-all-urls &#x60;</span><span class="line">  --append-use-original-location</span>
 
 @snapend
 
