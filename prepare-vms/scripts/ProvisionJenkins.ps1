@@ -1,5 +1,6 @@
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-choco upgrade jenkins -y --no-progress
+choco upgrade jenkins --version 2.138.1 -y --no-progress
+choco pin add -n=jenkins
 
 Write-Host "Stopping Jenkins service."
 Stop-Service -Name jenkins
