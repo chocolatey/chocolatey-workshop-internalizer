@@ -5,4 +5,6 @@ else {
   @( 'vscode', 'git', 'googlechrome', 'firefox', 'pester' ) | ForEach-Object {
       choco upgrade $_ -y --no-progress
   }
+
+    choco upgrade baretail --version 3.50.0.20120225 -y --no-progress
 }
