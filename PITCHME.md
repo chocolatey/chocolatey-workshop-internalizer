@@ -1,7 +1,7 @@
 @title[Setting Up Internal Chocolatey Deployments]
 
 ## Setting Up Internal Chocolatey Deployments
-### Using Jenkins and Package Internalizer
+### Using Jenkins Chocolatey.Server and Package Internalizer
 
 ![WinOps Logo](assets/images/winops_logo.png)
 
