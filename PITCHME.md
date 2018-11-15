@@ -845,7 +845,7 @@ This will error out.  We need to know the Api Key to push packages to this feed
 
 - Create a temp directory and change to it
 <pre><code class="lang-powershell hljs"><span class="line">`choco new newapp`</span></code></pre>
-- In the `newapp` folder created, delete all files except `newapp.nuspec` and `tools\chocoInstall.ps1`
+- In the `newapp` folder created, delete all files except `newapp.nuspec` and `tools\chocolateyInstall.ps1`
 
 
 @ulend
@@ -859,7 +859,7 @@ This will error out.  We need to know the Api Key to push packages to this feed
 <br>
 
 @ul[](false)
-- Replace the contents of `tools\chocoInstall.ps1` with `Write-Host "New app is installed!"`
+- Replace the contents of `tools\chocolateyInstall.ps1` with `Write-Host "New app is installed!"`
 - In `newapp.nuspec` change the version field number to `1.2.3`
 - In a terminal, navigate to the folder where the nuspec was created and run:
 <pre><code class="lang-powershell hljs"><span class="line">`choco pack`<span></code></pre>
