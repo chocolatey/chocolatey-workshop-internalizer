@@ -611,7 +611,7 @@ This will error out.  We need to know the Api Key to push packages to this feed
 
 ## Using Community Repository
 
-- Over 6000 _unique_ packages on Chocolatey.org
+- Over 6100 _unique_ packages on Chocolatey.org
 - Leverage pre-built packages
 - Internalize them for best of both worlds
 
@@ -624,6 +624,24 @@ This will error out.  We need to know the Api Key to push packages to this feed
 - Primary internal feed for all new packages
 - Master feed to manage
 
++++
+
+@title[Test Repository Internalization Scripts]
+
+@snap[center exercise-box]
+
+@fa[keyboard-o]()&nbsp;Exercise
+<br>
+
+@ul[](false)
+- Open Command Window
+- Enter `cd c:\scripts`
+- Enter `code`
+- Open `Get-UpdatedPackage.ps1` script
+- Open `ConvertTo-ChocoObject.ps1` script
+@ulend
+@snapend
+
 ---
 
 @title[Testing Packages]
@@ -634,6 +652,36 @@ This will error out.  We need to know the Api Key to push packages to this feed
 - Identify test machines
 - Working with golden images? (Vagrant / VM)
 
++++
+
+@title[Testing Packages Code]
+
+@snap[center exercise-box]
+
+@fa[keyboard-o]()&nbsp;Exercise
+<br>
+
+@ul[](false)
+- Open Command Window
+- Enter `cd c:\scripts`
+- Enter `code`
+- Open `Update-ProdRepoFromTest.ps1` script
+- Open `Test-Package.ps1` script
+- Uncomment out the lines for checking exit code
+@ulend
+@snapend
+
++++
+
+@title[Testing Packages Code]
+
+## Other Package Tests
+
+- Command / EXE is present
+- URL / port / path is available
+- VM / Docker image to test packages
+- Any others?
+
 ---
 
 @title[Push To Internal Production Repository]
@@ -643,6 +691,23 @@ This will error out.  We need to know the Api Key to push packages to this feed
 - Master feed for production deployment
 - Tested packages
 - Working in your environment
+
++++
+
+@title[Testing Packages Code]
+
+@snap[center exercise-box]
+
+@fa[keyboard-o]()&nbsp;Exercise
+<br>
+
+@ul[](false)
+- Open Command Window
+- Enter `cd c:\scripts`
+- Enter `code`
+- Open `Update-ProdRepoFromTest.ps1` script
+@ulend
+@snapend
 
 ---
 
