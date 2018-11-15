@@ -1031,6 +1031,91 @@ Web: https://chocolatey.org
 
 ---
 
+@title[Let's go off script...]
+## Let's go off script...
+
++++
+
+## Install Chocolatey Beta
+
+@snap[center exercise-box]
+
+@fa[keyboard-o]()&nbsp;Exercise
+<br>
+
+@ul[](false)
+
+<pre><code class="lang-powershell hljs"><span class="line">choco upgrade chocolatey --version=0.10.12-beta-20181011             </span></code></pre>
+
+@ulend
+@snapend
+
++++
+
+## Install Chocolatey Extension Beta
+
+@snap[center exercise-box]
+
+@fa[keyboard-o]()&nbsp;Exercise
+<br>
+
+@ul[](false)
+
+<pre><code class="lang-powershell hljs"><span class="line">choco upgrade chocolatey.extension --version=2.0.0-beta-20181009             </span></code></pre>
+
+@ulend
+@snapend
+
++++
+
+## Install Chocolatey Agent Beta
+
+@snap[center exercise-box]
+
+@fa[keyboard-o]()&nbsp;Exercise
+<br>
+
+@ul[](false)
+
+<pre><code class="lang-powershell hljs"><span class="line">choco upgrade chocolatey-agent --version=0.9.0-beta-20181009             </span></code></pre>
+
+@ulend
+@snapend
+
++++
+
+## Configure Chocolatey Central Management
+
+@snap[center exercise-box]
+
+@fa[keyboard-o]()&nbsp;Exercise
+<br>
+
+@ul[](false)
+
+<pre><code class="lang-powershell hljs"><span class="line">choco config set centralManagementReportPackagesTimerIntervalInSeconds 60             </span><span class="line">choco config set centralManagementServiceUrl "https://winops-01:24040/ChocolateyManagementService"</span><span class="line">choco config set centralManagementReceiveTimeoutInSeconds 60</span><span class="line">choco config set centralManagementSendTimeoutInSeconds 60</span><span class="line">choco config set centralManagementCertificateValidationMode "PeerOrChainTrust"</span></code></pre>
+
+@ulend
+@snapend
+
++++
+
+## Enable Chocolatey Central Management
+
+@snap[center exercise-box]
+
+@fa[keyboard-o]()&nbsp;Exercise
+<br>
+
+@ul[](false)
+
+<pre><code class="lang-powershell hljs"><span class="line">choco feature enable --name="'useChocolateyCentralManagement'"             </span></code></pre>
+
+@ulend
+@snapend
+
+---
+
 @title[Resources]
 ## Resources
 
