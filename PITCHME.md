@@ -1,7 +1,7 @@
 @title[Setting Up Internal Chocolatey Deployments]
 
 ## Setting Up Internal Chocolatey Deployments
-### Using Jenkins and Package Internalizer
+### Using Jenkins Chocolatey.Server and Package Internalizer
 
 ![WinOps Logo](assets/images/winops_logo.png)
 
@@ -82,8 +82,7 @@ Senior Technical Engineer @ Chocolatey Software
 @snap[west]
 @ul[](false)
 - 13:30: Workshop Starts
-- 15:00: Comfort Break
-- 16:00: Comfort Break
+- 15:00: Coffee Break
 - 17:00: Workshop Ends
 @ulend
 <br/><br/>
@@ -138,7 +137,7 @@ Agenda
 @snap[north span-100]
 <br><br>
 @ul[](false)
-- Uses Chocolatey 0.10.11, Chocolatey.Server 0.2.5, and Jenkins 2.138.3
+- Uses Chocolatey 0.10.11, Chocolatey.Server 0.2.5, and Jenkins 2.138.1
 - All hands-on section are clearly identified, like the rectangle below:
 @ulend
 @snapend
@@ -234,6 +233,80 @@ Test login credentials to make sure you have access.
 
 +++
 
+## Sources
+
+What is a Chocolatey Source?
+
++++
+
+## List current Sources
+
+@snap[center exercise-box]
+
+@fa[keyboard-o]()&nbsp;Exercise
+<br>
+
+<pre><code class="lang-powershell hljs"><span class="line">choco source</span><span class="line">choco source list</span></code></pre>
+
+@snapend
+
++++
+
+## Result
+
+![Output from choco source](assets/images/choco-source.png)
+
++++
+
+## Add Test Repository Source
+
+<pre><code class="lang-powershell hljs"><span class="line">choco source add --name="'testrepo'" &#x60;
+  --source="'http://localhost/chocolatey'" &#x60;
+  --priority="'2'" --bypass-proxy --allow-self-service
+</span></code></pre>
+
++++
+
+## Result
+
+![Output from choco source add testrepo](assets/images/choco-source-add-test-repo.png)
+
++++
+
+## Add Production Repository Source
+
+<pre><code class="lang-powershell hljs"><span class="line">choco source add --name="'prodrepo'" &#x60;
+  --source="'http://localhost:81/chocolatey'" &#x60;
+  --priority="'2'" --bypass-proxy --allow-self-service
+</span></code></pre>
+
++++
+
+## Result
+
+![Output from choco source add prodrepo](assets/images/choco-source-add-prod-repo.png)
+
++++
+
+## List Sources Again...
+
+@snap[center exercise-box]
+
+@fa[keyboard-o]()&nbsp;Exercise
+<br>
+
+<pre><code class="lang-powershell hljs"><span class="line">choco source</span><span class="line">choco source list</span></code></pre>
+
+@snapend
+
++++
+
+## Result
+
+![Output from choco source](assets/images/choco-source-more.png)
+
++++
+
 ## List local packages
 
 @snap[center exercise-box]
@@ -303,24 +376,6 @@ Test login credentials to make sure you have access.
 ![Output from choco upgrade all](assets/images/choco-upgrade-all.png)
 
 +++
-
-## Viewing Chocolatey Sources
-
-@snap[center exercise-box]
-
-@fa[keyboard-o]()&nbsp;Exercise
-<br>
-
-<pre><code class="lang-powershell hljs"><span class="line">choco source</span><span class="line">choco source list</span></code></pre>
-
-+++
-
-## Result
-
-![Output from choco source](assets/images/choco-source.png)
-
-+++
-
 
 ## Reduce size of files on disk
 

@@ -101,8 +101,3 @@ $secondAppdataPath = Join-Path -Path $secondSitePath -ChildPath 'App_Data'
     $obj = New-AclObject -SamAccountName $_ -Permission 'Modify' -Inheritance 'ContainerInherit', 'ObjectInherit'
     Add-Acl -Path $secondAppdataPath -AceObject $obj
 }
-
-Write-Host "Setting up Chocolatey Sources..."
-choco source add --name="'testrepo'" --source="'http://localhost/chocolatey'" --priority="'2'" --bypass-proxy --allow-self-service
-choco source add --name="'prodrepo'" --source="'http://localhost:81/chocolatey'" --priority="'2'" --bypass-proxy --allow-self-service
-

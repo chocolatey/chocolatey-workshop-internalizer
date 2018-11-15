@@ -1,4 +1,4 @@
-# chocolatey-internalizer-workshop
+# Chocolatey Internalizer Workshop
 
 This is the material for the workshop "Setting up Internal Chocolatey Deployments" written by Gary Ewan Park and Paul Broadwith.
 
@@ -8,9 +8,7 @@ Software management and deployment is already a task, getting that good base of 
 
 In this workshop you will get hands on experience with:
 
-- Git
 - Setting up your workstation for Chocolatey packaging (best tools to use)
-- Scripting that setup for others
 - Preparing Chocolatey for internal use
 - Setting up a package repository (Chocolatey.Server)
 - Setting up a CI system (Jenkins)
