@@ -82,8 +82,7 @@ Senior Technical Engineer @ Chocolatey Software
 @snap[west]
 @ul[](false)
 - 13:30: Workshop Starts
-- 15:00: Comfort Break
-- 16:00: Comfort Break
+- 15:00: Coffee Break
 - 17:00: Workshop Ends
 @ulend
 <br/><br/>
