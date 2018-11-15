@@ -1021,15 +1021,11 @@ This will error out.  We need to know the Api Key to push packages to this feed
 @title[Questions]
 ## Questions?
 
-Feel free to get in touch
+Feel free to get in touch after the workshop.
 
-Email:
-gary@chocolatey.io
-paul@chocolatey.io
+Email: gary@chocolatey.io / paul@chocolatey.io
 
-Twitter:
-@gep13
-@pauby
+Twitter: @gep13 / @pauby
 
 Web: https://chocolatey.org
 
