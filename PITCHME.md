@@ -883,11 +883,24 @@ This will error out.  We need to know the Api Key to push packages to this feed
   --api-key chocolateyrocks<span></code></pre>
 - Run
 <pre><code class="lang-powershell hljs"><span class="line">choco list -s http://localhost/chocolatey</span></code></pre>
-- and make sure the `newapp` package is shown
+- and make sure the `newapp` package is shown in test repository
+@ulend
+@snapend
+
++++
+
+## Lets Sync The App To Production
+
+@snap[center exercise-box]
+
+@fa[keyboard-o]()&nbsp;Exercise
+<br>
+
+@ul[](false)
 - Go to Jenkins and run the job **Sync Production Repository From Test** with default parameters
 - Run
 <pre><code class="lang-powershell hljs"><span class="line">choco list -s http://localhost:81/chocolatey</span></code></pre>
-- and make sure the `newapp` package is shown
+- and make sure the `newapp` package is shown in production repository
 
 @ulend
 @snapend
