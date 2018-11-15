@@ -123,7 +123,7 @@ Agenda
   - on macOS, get Microsoft Remote Desktop from the App Store
   - on Linux, get [rdesktop](https://wiki.ubuntuusers.de/rdesktop/)
 - Some Chocolatey knowledge
-  - but it's OK if you are not a Chocolatey expert!)
+  - but it's OK if you are not a Chocolatey expert!
 @ulend
 @snapend
 ---
@@ -535,7 +535,7 @@ This will error out.  We need to know the Api Key to push packages to this feed
 @snap[north-west]
 <br />
 <ul>
-  <li style="color: black">Interalizing</li>
+  <li style="color: black">Internalizing</li>
   <li style="color: black">Testing</li>
   <li style="color: black">Deployment</li>
 </ul>
