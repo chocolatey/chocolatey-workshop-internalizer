@@ -23,7 +23,7 @@ In this workshop you will get hands on experience with:
 - This presentation was given at [Chocolatey Fest 2018](https://chocolateyfest.com/) on 8th October 2018
   - The slides can be found here [![GitPitch](https://gitpitch.com/assets/badge.svg)](https://gitpitch.com/gep13/chocolatey-internalizer-workshop/chocolateyfest2018)
 - This presentation was given at [WinOps 2018](https://www.winops.org/london-2018/) on 15th November 2018
-  - The slides can be found here - TBD
+  - The slides can be found here - [![GitPitch](https://gitpitch.com/assets/badge.svg)](https://gitpitch.com/gep13/chocolatey-internalizer-workshop/winops2018)
 
 ## Running the workshop
 
