@@ -32,7 +32,7 @@ In this workshop you will get hands on experience with:
 - Check and increase your limits two weeks before running the workshop.
 - Check and ask in advance if your workshop location allows outgoing RDP connections at port 3389.
 
-## Problems? Questions? Feedback welcome
+## Problems? Questions? Feedback?
 
 - If you have problems, found a bug or have questions, don't hesitate to contact us.
 - Open an issue in this repository or send me a pull request.
