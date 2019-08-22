@@ -10,7 +10,7 @@ if(!(Test-Path "c:\scripts")) {
 }
 
 Write-Host "Extracting Jenkins configuration files..."
- (New-Object Net.WebClient).DownloadFile('https://github.com/gep13/chocolatey-internalizer-workshop/raw/master/prepare-vms/scripts/jenkins-config.zip', 'C:\scripts\jenkins-config.zip')
+ (New-Object Net.WebClient).DownloadFile('https://github.com/chocolatey/chocolatey-workshop-internalizer/raw/master/prepare-vms/scripts/jenkins-config.zip', 'C:\scripts\jenkins-config.zip')
 7z x c:\scripts\jenkins-config.zip -y -r -bd -o"c:\program files (x86)\jenkins"
  Write-Host "Finished extracting config files."
 
@@ -20,10 +20,10 @@ Start-Service -Name Jenkins
 
 Write-Host "Downloading Jenkins Scripts..."
 
-(New-Object Net.WebClient).DownloadFile('https://github.com/gep13/chocolatey-internalizer-workshop/raw/master/prepare-vms/scripts/ConvertTo-ChocoObject.ps1', 'C:\scripts\ConvertTo-ChocoObject.ps1')
-(New-Object Net.WebClient).DownloadFile('https://github.com/gep13/chocolatey-internalizer-workshop/raw/master/prepare-vms/scripts/Update-ProdRepoFromTest.ps1', 'C:\scripts\Update-ProdRepoFromTest.ps1')
-(New-Object Net.WebClient).DownloadFile('https://github.com/gep13/chocolatey-internalizer-workshop/raw/master/prepare-vms/scripts/Get-UpdatedPackage.ps1', 'C:\scripts\Get-UpdatedPackage.ps1')
-(New-Object Net.WebClient).DownloadFile('https://github.com/gep13/chocolatey-internalizer-workshop/raw/master/prepare-vms/scripts/Test-Package.ps1', 'C:\scripts\Test-Package.ps1')
+(New-Object Net.WebClient).DownloadFile('https://github.com/chocolatey/chocolatey-workshop-internalizer/raw/master/prepare-vms/scripts/ConvertTo-ChocoObject.ps1', 'C:\scripts\ConvertTo-ChocoObject.ps1')
+(New-Object Net.WebClient).DownloadFile('https://github.com/chocolatey/chocolatey-workshop-internalizer/raw/master/prepare-vms/scripts/Update-ProdRepoFromTest.ps1', 'C:\scripts\Update-ProdRepoFromTest.ps1')
+(New-Object Net.WebClient).DownloadFile('https://github.com/chocolatey/chocolatey-workshop-internalizer/raw/master/prepare-vms/scripts/Get-UpdatedPackage.ps1', 'C:\scripts\Get-UpdatedPackage.ps1')
+(New-Object Net.WebClient).DownloadFile('https://github.com/chocolatey/chocolatey-workshop-internalizer/raw/master/prepare-vms/scripts/Test-Package.ps1', 'C:\scripts\Test-Package.ps1')
 
 Write-Host "Waiting up to 60 seconds for Jenkins to respond."
 # loop either 60 times or until we get a 403 status code response (403 means we
