@@ -8,10 +8,10 @@ else {
 
   Write-Host "Downloading bginfo files..."
   if (!(Test-Path 'C:\ProgramData\chocolatey\lib\bginfo\tools\bginfo.bgi')) {
-    (New-Object Net.WebClient).DownloadFile('https://github.com/gep13/chocolatey-internalizer-workshop/raw/master/prepare-vms/azure/packer/bginfo.bgi', 'C:\ProgramData\chocolatey\lib\bginfo\tools\bginfo.bgi')
+    (New-Object Net.WebClient).DownloadFile('https://github.com/chocolatey/chocolatey-workshop-internalizer/raw/master/prepare-vms/azure/packer/bginfo.bgi', 'C:\ProgramData\chocolatey\lib\bginfo\tools\bginfo.bgi')
   }
   if (!(Test-Path 'c:\programdata\chocolatey\lib\sysinternals\tools\background.jpg')) {
-    (New-Object Net.WebClient).DownloadFile('https://github.com/gep13/chocolatey-internalizer-workshop/raw/master/prepare-vms/azure/packer/background.jpg', 'C:\ProgramData\chocolatey\lib\bginfo\tools\background.jpg')
+    (New-Object Net.WebClient).DownloadFile('https://github.com/chocolatey/chocolatey-workshop-internalizer/raw/master/prepare-vms/azure/packer/background.jpg', 'C:\ProgramData\chocolatey\lib\bginfo\tools\background.jpg')
   }
   Write-Host "Download complete."
 
