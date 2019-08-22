@@ -1,4 +1,4 @@
-# chocolatey-internalizer-workshop
+# Chocolatey Workshop - Internalizer
 
 This is the material for the workshop "Setting up Internal Chocolatey Deployments" written by Gary Ewan Park and Paul Broadwith.
 
@@ -8,7 +8,7 @@ This is the material for the workshop "Setting up Internal Chocolatey Deployment
 
 ## Workshop slides
 
-- The slides for this presentation can be found here [![GitPitch](https://gitpitch.com/assets/badge.svg)](https://gitpitch.com/gep13/chocolatey-internalizer-workshop/master)
+- The slides for this presentation can be found here [![GitPitch](https://gitpitch.com/assets/badge.svg)](https://gitpitch.com/chocolatey/chocolatey-workshop-internalizer/master)
 
 ## Past workshops
 

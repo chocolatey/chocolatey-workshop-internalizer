@@ -157,7 +157,7 @@ Agenda
 <br>
 @ul[](false)
 - This is the stuff you are supposed to do!
-- Go to https://gitpitch.com/gep13/chocolatey-internalizer-workshop/master to view these slides.
+- Go to https://gitpitch.com/chocolatey/chocolatey-workshop-internalizer/master to view these slides.
 @ulend
 
 @snapend
