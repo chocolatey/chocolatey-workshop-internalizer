@@ -1,4 +1,4 @@
-# Chocolatey Internalizer Workshop
+# Chocolatey Workshop - Interalizer
 
 This is the material for the workshop "Setting up Internal Chocolatey Deployments" written by Gary Ewan Park and Paul Broadwith.
 
