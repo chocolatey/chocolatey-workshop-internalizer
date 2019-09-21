@@ -38,3 +38,7 @@ In this workshop you will get hands on experience with:
 - Open an issue in this repository or send me a pull request.
 
 Have fun!
+
+## Thanks
+
+This workshop would not have been possible without the amazing work of [Stefan Scherer](https://github.com/StefanScherer).  The contents of this workshop are based on the work that Stefan did in this [repository](https://github.com/StefanScherer/windows-docker-workshop), where he shows how to put together a full workshop environment using Packer, Terraform and Azure.
